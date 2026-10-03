@@ -1,7 +1,10 @@
 package com.jev.overseas.assistant.preview
 
 import android.app.Activity
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.os.Bundle
+import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.HorizontalScrollView
@@ -30,6 +33,7 @@ import com.jev.overseas.core.session.ChatReader
 import com.jev.overseas.core.session.ReadReport
 import com.jev.overseas.core.session.ReadResult
 import com.jev.overseas.core.session.ReplyTarget
+import java.io.File
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 
@@ -38,6 +42,11 @@ import java.util.concurrent.Executors
  * model answers, so every state can be checked without WhatsApp, a key or cost.
  * Pick a scenario from the row at the top, or start one directly:
  * `adb shell am start -n com.jev.overseas/com.jev.overseas.assistant.preview.PanelPreviewActivity --es scenario results`
+ *
+ * Add `--ez snapshot true` to also draw the panel alone, without the status bar or
+ * anything the system draws on top, to `files/snapshots/<scenario>.png` (used for
+ * the README images):
+ * `adb exec-out run-as com.jev.overseas cat files/snapshots/results.png > results.png`
  */
 class PanelPreviewActivity : Activity(), PanelView.Host {
 
@@ -61,7 +70,18 @@ class PanelPreviewActivity : Activity(), PanelView.Host {
             insets
         }
         setContentView(root)
-        show(intent.getStringExtra("scenario") ?: "results")
+        val first = intent.getStringExtra("scenario") ?: "results"
+        show(first)
+        if (intent.getBooleanExtra("snapshot", false)) {
+            holder.postDelayed({ panel?.let { snapshot(it, first) } }, SNAPSHOT_DELAY_MS)
+        }
+    }
+
+    private fun snapshot(view: View, name: String) {
+        val bitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
+        view.draw(Canvas(bitmap))
+        val dir = File(filesDir, "snapshots").apply { mkdirs() }
+        File(dir, "$name.png").outputStream().use { bitmap.compress(Bitmap.CompressFormat.PNG, 100, it) }
     }
 
     private fun show(name: String) {
@@ -232,5 +252,6 @@ class PanelPreviewActivity : Activity(), PanelView.Host {
         val SCENARIOS = listOf("results", "decide", "breakdown", "expanded", "changed", "checking", "blocked", "threat",
             "boundary", "error", "nokey", "notchat", "picker")
         private val USAGE = Usage(1000, 60, 0.00021)
+        private const val SNAPSHOT_DELAY_MS = 2500L
     }
 }

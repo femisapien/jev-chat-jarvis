@@ -1,6 +1,17 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+}
+
+// Release signing: a properties file kept OUTSIDE the repo (storeFile /
+// storePassword / keyAlias / keyPassword), named by the JEV_OVERSEAS_KEYSTORE_PROPS
+// environment variable. Without it, release builds are unsigned.
+val releaseProps = Properties().apply {
+    System.getenv("JEV_OVERSEAS_KEYSTORE_PROPS")?.let { file(it) }?.takeIf { it.exists() }
+        ?.let { f -> FileInputStream(f).use { load(it) } }
 }
 
 // The overseas assistant (WhatsApp, English). Separate from the upstream :app.
@@ -19,6 +30,24 @@ android {
 
     buildFeatures {
         buildConfig = true
+    }
+
+    signingConfigs {
+        if (releaseProps.isNotEmpty()) {
+            create("release") {
+                storeFile = file(releaseProps.getProperty("storeFile"))
+                storePassword = releaseProps.getProperty("storePassword")
+                keyAlias = releaseProps.getProperty("keyAlias")
+                keyPassword = releaseProps.getProperty("keyPassword")
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            signingConfig = signingConfigs.findByName("release")
+        }
     }
 
     compileOptions {
