@@ -13,6 +13,8 @@
 
 [官网](https://chatjevs.com) · [安装与设置指南](https://chatjevs.com/guides/android-setup.html) · [候选回复使用建议](https://chatjevs.com/guides/review-ai-replies.html) · [隐私政策](PRIVACY.md) · [更新日志](CHANGELOG.md)
 
+**简体中文** · [English](README.en.md) · [Tiếng Việt](README.vi.md)
+
 </div>
 
 ## 开始使用 Jev
