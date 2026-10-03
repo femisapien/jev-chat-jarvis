@@ -30,6 +30,8 @@ App 界面是英文的，因为它面向的是用英文聊天的用户。
 
 ## 界面一览
 
+### WhatsApp 里的面板
+
 下面是 App 真实的面板，用示例数据渲染（debug 版里的 `PanelPreviewActivity`）。真实聊天里的截图之后补上。
 
 <table align="center">
@@ -46,6 +48,32 @@ App 界面是英文的，因为它面向的是用英文聊天的用户。
 <td align="center"><img src="docs/images/states/08-boundary.png" width="200" alt="对方划了界限" /><br/><sub><b>8. 对方划了界限</b><br/>只提供简短收尾</sub></td>
 </tr>
 </table>
+
+### Jev App 本身
+
+从桌面图标打开。设置和选项都在一页里（图里是占位 key）。
+
+<table align="center">
+<tr>
+<td align="center" width="33%"><img src="docs/images/app/01-setup.png" width="230" alt="设置步骤" /><br/><sub><b>设置步骤</b><br/>key、无障碍服务、第一次试用；完成的步骤会打勾</sub></td>
+<td align="center" width="33%"><img src="docs/images/app/02-settings.png" width="230" alt="模型和回复" /><br/><sub><b>模型和回复</b><br/>模型 id、拼写、「Analyse when opened」、已记住的聊天</sub></td>
+<td align="center" width="33%"><img src="docs/images/app/03-diagnostics-about.png" width="230" alt="诊断和关于" /><br/><sub><b>诊断和关于</b><br/>本机日志和问题报告、版本、隐私</sub></td>
+</tr>
+</table>
+
+```
+Jev App
+├── 顶部：JEV for WhatsApp，版本号
+├── Set up（设置步骤）
+│   ├── 1  OpenRouter key：保存、测试连接、移除
+│   ├── 2  无障碍服务：当前状态、打开系统设置
+│   └── 3  打开 WhatsApp 聊天，点悬浮球
+└── Settings（选项）
+    ├── Models：Jev 模型、起草模型
+    ├── Replies：拼写（Auto / US / UK）、打开时自动分析、清除已记住的聊天
+    ├── Diagnostics：保留日志、分享报告、清空日志
+    └── About：WhatsApp 和 Jev 的版本、隐私说明
+```
 
 ## 为什么用它
 

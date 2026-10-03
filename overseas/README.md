@@ -32,6 +32,8 @@ to download or use the app.
 
 ## What it looks like
 
+### The panel in WhatsApp
+
 The real panel, rendered by the app with sample data (`PanelPreviewActivity` in the
 debug build). Screenshots from a live chat will follow.
 
@@ -49,6 +51,32 @@ debug build). Screenshots from a live chat will follow.
 <td align="center"><img src="docs/images/states/08-boundary.png" width="200" alt="They set a boundary" /><br/><sub><b>8. A boundary</b><br/>Only a brief close is offered</sub></td>
 </tr>
 </table>
+
+### The Jev app
+
+Opened from the launcher. Setup and settings on one page (placeholder key shown).
+
+<table align="center">
+<tr>
+<td align="center" width="33%"><img src="docs/images/app/01-setup.png" width="230" alt="Set up" /><br/><sub><b>Set up</b><br/>Key, accessibility service, first try; each step ticks when done</sub></td>
+<td align="center" width="33%"><img src="docs/images/app/02-settings.png" width="230" alt="Models and replies" /><br/><sub><b>Models and replies</b><br/>Model ids, spelling, "Analyse when opened", remembered chats</sub></td>
+<td align="center" width="33%"><img src="docs/images/app/03-diagnostics-about.png" width="230" alt="Diagnostics and about" /><br/><sub><b>Diagnostics and about</b><br/>Local log and bug report, versions, privacy</sub></td>
+</tr>
+</table>
+
+```
+Jev app
+├── Header: JEV for WhatsApp, version
+├── Set up
+│   ├── 1  OpenRouter key: save, test connection, remove
+│   ├── 2  Accessibility service: status, open settings
+│   └── 3  Open a WhatsApp chat and tap the bubble
+└── Settings
+    ├── Models: Jev model, drafting model
+    ├── Replies: spelling (Auto / US / UK), analyse when opened, forget remembered chats
+    ├── Diagnostics: keep log, share report, clear log
+    └── About: WhatsApp and Jev versions, privacy
+```
 
 ## Why use it
 

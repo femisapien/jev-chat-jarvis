@@ -162,10 +162,17 @@
     <string name="hide_read">Hide what was read</string>
 
     <!-- Settings and setup -->
-    <string name="setup_title">Set up Jev</string>
-    <string name="step_key">1. Add your OpenRouter key</string>
-    <string name="step_service">2. Turn on the accessibility service</string>
-    <string name="step_try">3. Open a WhatsApp chat and tap the bubble</string>
+    <string name="setup_title">Set up</string>
+    <string name="setup_progress">%1$d of 2 done</string>
+    <string name="setup_ready">Ready</string>
+    <string name="app_tagline">Reply suggestions for your WhatsApp chats. You always press send.</string>
+    <string name="brand_suffix">for WhatsApp</string>
+    <string name="settings_heading">Settings</string>
+    <string name="replies_title">Replies</string>
+    <string name="about_title">About</string>
+    <string name="step_key">Add your OpenRouter key</string>
+    <string name="step_service">Turn on the accessibility service</string>
+    <string name="step_try">Open a WhatsApp chat and tap the bubble</string>
     <string name="key_hint">OpenRouter key</string>
     <string name="save">Save</string>
     <string name="remove">Remove</string>

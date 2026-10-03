@@ -8,5 +8,10 @@
             android:name="com.jev.overseas.assistant.preview.PanelPreviewActivity"
             android:exported="true"
             android:theme="@style/Theme.Jev" />
+        <!-- The setup screen with a placeholder key, for screenshots without the real key. -->
+        <activity
+            android:name="com.jev.overseas.assistant.preview.SetupPreviewActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Jev" />
     </application>
 </manifest>
