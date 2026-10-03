@@ -23,7 +23,7 @@
 | Android 11+ · any CPU · 10.6 MB · English chats |
 
 This is the English, WhatsApp-only edition of Jev. It is a separate app from the
-Chinese [Jev Chat Assistant](../README.md) (QQ, X, Feishu) in the repository root:
+Chinese [Jev Chat Assistant](../README.en.md) (QQ, X, Feishu) in the repository root:
 its own package (`com.jev.overseas`), its own engine and its own build. Both can be
 installed on the same phone.
 
@@ -346,7 +346,7 @@ which chats and situations you would most like Jev to handle.
 
 In the [jev-chat](https://github.com/jev-chat) organisation:
 
-- [Jev Chat Assistant for Android](../README.md) (Chinese): QQ, X and Feishu.
+- [Jev Chat Assistant for Android](../README.en.md): QQ, X and Feishu, for chats in Chinese.
 - [Jev for macOS](https://github.com/jev-chat/jev-chat-jarvis-mac) and
   [Jev for Windows](https://github.com/jev-chat/jev-chat-windows): desktop chat windows.
 
