@@ -14,7 +14,7 @@
 
 [Website](https://chatjevs.com) · [Download APK](apk/jev-assistant-v1.4-release.apk) · [Releases](https://github.com/jev-chat/jev-chat-jarvis/releases) · [Changelog](CHANGELOG.md) · [macOS](https://github.com/jev-chat/jev-chat-mac) · [Windows](https://github.com/jev-chat/jev-chat-windows)
 
-[简体中文](README.md) · English
+[简体中文](README.md) · **English** · [Tiếng Việt](README.vi.md)
 
 </div>
 

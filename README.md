@@ -10,9 +10,10 @@
 [![Forks](https://img.shields.io/github/forks/jev-chat/jev-chat-jarvis?style=flat-square&logo=github&label=Forks)](https://github.com/jev-chat/jev-chat-jarvis/forks)
 [![Version](https://img.shields.io/badge/%E7%89%88%E6%9C%AC-v1.4-1f6feb?style=flat-square)](CHANGELOG.md)
 [![License](https://img.shields.io/github/license/jev-chat/jev-chat-jarvis?style=flat-square)](LICENSE)
-[![🇺🇸 English](https://img.shields.io/badge/%F0%9F%87%BA%F0%9F%87%B8-English-0A66C2?style=flat-square)](README.en.md)
 
 [官网](https://chatjevs.com) · [安装与设置指南](https://chatjevs.com/guides/android-setup.html) · [候选回复使用建议](https://chatjevs.com/guides/review-ai-replies.html) · [隐私政策](PRIVACY.md) · [更新日志](CHANGELOG.md)
+
+**简体中文** · [English](README.en.md) · [Tiếng Việt](README.vi.md)
 
 </div>
 
