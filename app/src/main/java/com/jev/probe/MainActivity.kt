@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var prefs: Prefs
     private lateinit var container: LinearLayout
     private val a11yComponent =
-        "com.jev.probe/com.google.android.accessibility.selecttospeak.SelectToSpeakService"
+        "com.jev.probe/com.jev.probe.capture.ChatCaptureService"
 
     private val accent = Color.parseColor("#3A7AFE")
     private val green = Color.parseColor("#16A34A")
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         container.removeAllViews()
 
         container.addView(text("Jev 聊天助手", 24f, ink, bold = true))
-        container.addView(text("在聊天 App 旁读对方消息（已支持 QQ、X、飞书），给出判断和候选回复。发送始终由你手动点。",
+        container.addView(text("在聊天 App 旁读对方消息（已支持 QQ、X、飞书、Soul），给出判断和候选回复。发送始终由你手动点。",
             13f, sub).apply { setPadding(0, dp(6), 0, dp(16)) })
 
         val a11y = isA11yEnabled()

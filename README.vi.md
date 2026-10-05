@@ -8,11 +8,11 @@
 
 [![Stars](https://img.shields.io/github/stars/jev-chat/jev-chat-jarvis?style=flat-square&logo=github&label=Stars)](https://github.com/jev-chat/jev-chat-jarvis/stargazers)
 [![Forks](https://img.shields.io/github/forks/jev-chat/jev-chat-jarvis?style=flat-square&logo=github&label=Forks)](https://github.com/jev-chat/jev-chat-jarvis/forks)
-[![Version](https://img.shields.io/badge/%E7%89%88%E6%9C%AC-v1.4-1f6feb?style=flat-square)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/%E7%89%88%E6%9C%AC-v1.5-1f6feb?style=flat-square)](CHANGELOG.md)
 [![Android](https://img.shields.io/badge/Android-11%2B-3DDC84?style=flat-square&logo=android&logoColor=white)](#bắt-đầu-nhanh)
 [![License](https://img.shields.io/github/license/jev-chat/jev-chat-jarvis?style=flat-square)](LICENSE)
 
-[Trang web](https://chatjevs.com) · [Chính sách quyền riêng tư](PRIVACY.md) · [Tải APK](apk/jev-assistant-v1.4-release.apk) · [Phiên bản trước](https://github.com/jev-chat/jev-chat-jarvis/releases) · [Nhật ký thay đổi](CHANGELOG.md) · [Bản macOS](https://github.com/jev-chat/jev-chat-jarvis-mac) · [Bản Windows](https://github.com/jev-chat/jev-chat-windows)
+[Trang web](https://chatjevs.com) · [Chính sách quyền riêng tư](PRIVACY.md) · [Tải APK](apk/jev-assistant-v1.5-release.apk) · [Phiên bản trước](https://github.com/jev-chat/jev-chat-jarvis/releases) · [Nhật ký thay đổi](CHANGELOG.md) · [Bản macOS](https://github.com/jev-chat/jev-chat-jarvis-mac) · [Bản Windows](https://github.com/jev-chat/jev-chat-windows)
 
 [简体中文](README.md) · [English](README.en.md) · **Tiếng Việt**
 
@@ -56,7 +56,7 @@
 - **Nó phân tích trước, rồi mới soạn câu trả lời.** Hầu hết công cụ chỉ yêu cầu mô hình soạn thẳng một câu trả lời. Jev trước tiên dùng mô hình phân tích để xác định ý định thật của đối phương, mức độ nguy hiểm, có nên trả lời ngay hay không, rồi mới soạn câu trả lời dựa trên kết quả đó.
 - **Không can thiệp vào ứng dụng chat của bạn.** Không hook, không sửa gói, không sử dụng API hay tài khoản của bất kỳ ứng dụng nào, không đọc cơ sở dữ liệu; chỉ dùng dịch vụ trợ năng của hệ thống để đọc cuộc trò chuyện đang hiển thị trên màn hình.
 - **Quyền gửi luôn thuộc về bạn.** Ứng dụng chỉ điền câu trả lời vào ô nhập, không bao giờ tự gửi, không can thiệp vào việc chuyển tiền, lì xì hoặc thu tiền.
-- **Một lõi, nhiều nền tảng.** QQ và X đã chạy thử trên thiết bị thật; 飞书 bổ sung nội dung chính bằng OCR. Thêm một ứng dụng chỉ cần viết một adapter vài chục dòng; phiên bản Android của 微信 đã bị gỡ khỏi cửa hàng ứng dụng hoàn toàn, không còn thu thập hay xử lý nội dung 微信.
+- **Một lõi, nhiều nền tảng.** QQ, X và Soul đã chạy thử trên thiết bị thật; 飞书 bổ sung nội dung chính bằng OCR. Thêm một ứng dụng chỉ cần viết một adapter vài chục dòng.
 - **Nó hiểu những người và việc liên quan đến bạn.** Cơ sở tri thức cục bộ và hồ sơ liên hệ tự động đưa các ghi chú phù hợp cùng lịch sử trò chuyện của người đó vào quá trình phân tích, giúp câu trả lời không mâu thuẫn với thiết lập của bạn.
 - **Bạn tự cấu hình API.** Địa chỉ, khóa và mô hình cho ba luồng phân tích, trả lời và thị giác đều có thể điền riêng. Khi phân tích, nội dung trò chuyện và thông tin nền đang bật sẽ được gửi tới nhà cung cấp mô hình mà bạn cấu hình; tác giả không vận hành máy chủ trung gian.
 - **Có thể kiểm soát dữ liệu lưu trên máy.** Khóa, cơ sở tri thức và lịch sử tùy chọn nằm trong không gian riêng của ứng dụng; ảnh chụp màn hình chỉ được OCR trên máy và không tải lên. Cách nhà cung cấp bên thứ ba xử lý nội dung nhận được tuân theo chính sách quyền riêng tư của họ.
@@ -67,18 +67,19 @@
 |---|---|---|---|
 | QQ Android | ✅ Hỗ trợ đầy đủ từ đầu đến cuối | Đọc node bằng dịch vụ trợ năng | Đã kiểm thử trên 9.3.50 (trò chuyện nhóm); 1v1 được suy luận theo cùng cấu trúc |
 | X / Twitter tin nhắn riêng | ✅ Hỗ trợ đầy đủ từ đầu đến cuối | Phân tích content-desc của node Compose | Đã kiểm thử trên 12.25, giao diện tiếng Trung; chưa xác minh giao diện tiếng Anh |
+| Soul | ✅ Hỗ trợ đầy đủ từ đầu đến cuối | Đọc node bằng dịch vụ trợ năng | Đã kiểm thử bản 6.38 trên Xiaomi 14; người đóng góp cũng đã kiểm thử trên vivo S30 |
 | 飞书 / Lark | ✅ Dự phòng bằng OCR (đã xác minh trên thiết bị thật) | Đọc hình chữ nhật bong bóng bằng dịch vụ trợ năng + OCR tiếng Trung ngoại tuyến bằng ML Kit để nhận dạng nội dung chính | Nội dung chính tự vẽ không có trong cây trợ năng; từ 1.3, thực hiện OCR cho hình chữ nhật từng bong bóng; phân biệt tôi/đối phương theo trạng thái đã đọc |
-| Ứng dụng khác chưa hỗ trợ (trừ 微信) | ✅ Thủ công | OCR toàn màn hình bằng “Nhận diện ảnh chụp một lần” trong menu cửa sổ nổi | Không tự động, không phân biệt tôi/đối phương (mọi nội dung đều được coi là lời của đối phương và được ghi rõ trong khung phân tích); phiên bản Android của 微信 đã bị gỡ khỏi cửa hàng ứng dụng hoàn toàn |
+| Ứng dụng khác chưa hỗ trợ | ✅ Thủ công | OCR toàn màn hình bằng “Nhận diện ảnh chụp một lần” trong menu cửa sổ nổi | Không tự động, không phân biệt tôi/đối phương (mọi nội dung đều được coi là lời của đối phương và được ghi rõ trong khung phân tích); không hỗ trợ ứng dụng ẩn nội dung giao diện hoặc chặn chụp màn hình |
 | Máy tính để bàn / web | ⏳ Đang lên kế hoạch | Ảnh chụp màn hình + OCR / thị giác | Cùng một lõi, chỉ thay đổi cách thu thập |
 
-Dự án này chỉ đọc nội dung chat trên thiết bị của chính bạn, nơi bạn có quyền xem và phiên bản hiện tại hỗ trợ; phiên bản Android của 微信 đã bị gỡ khỏi cửa hàng ứng dụng hoàn toàn, không cung cấp tính năng thu thập hay phân tích 微信.
+Dự án này chỉ đọc nội dung chat trên thiết bị của chính bạn, nơi bạn có quyền xem và phiên bản hiện tại hỗ trợ; không đọc ứng dụng ẩn nội dung giao diện hoặc chặn chụp màn hình.
 
 ## Bắt đầu nhanh
 
-**1. Cài đặt.** Kho lưu trữ có gói release đã ký: [`apk/jev-assistant-v1.4-release.apk`](apk/jev-assistant-v1.4-release.apk) (Android 11+, chỉ hỗ trợ ARM64 / `arm64-v8a`). Gói cài đặt của các phiên bản khác cũng có trong [Releases](https://github.com/jev-chat/jev-chat-jarvis/releases).
+**1. Cài đặt.** Kho lưu trữ có gói release đã ký: [`apk/jev-assistant-v1.5-release.apk`](apk/jev-assistant-v1.5-release.apk) (Android 11+, chỉ hỗ trợ ARM64 / `arm64-v8a`). Gói cài đặt của các phiên bản khác cũng có trong [Releases](https://github.com/jev-chat/jev-chat-jarvis/releases).
 
 ```bash
-adb install -r apk/jev-assistant-v1.4-release.apk
+adb install -r apk/jev-assistant-v1.5-release.apk
 ```
 
 **2. Nhập khóa.** Mở ứng dụng → Cài đặt → “API”, chia thành ba thẻ: API phân tích / API trả lời / API thị giác. Cách đơn giản nhất là chỉ điền [API Key của OpenRouter](https://openrouter.ai/) vào thẻ “API phân tích”; để trống hai thẻ còn lại để chúng tự động kế thừa khóa này và ứng dụng sẽ dùng được. Nếu muốn đổi mô hình trả lời (mặc định `deepseek/deepseek-chat-v3.1`; Gemini / OpenAI tại Trung Quốc sẽ bị giới hạn theo khu vực), hãy chọn một cấu hình có sẵn trong “API trả lời” (OpenRouter / DeepSeek chính thức / 通义兼容) hoặc tự nhập địa chỉ; mỗi thẻ có chức năng kiểm tra kết nối độc lập bằng một chạm.
@@ -124,7 +125,7 @@ Tại Cài đặt → Phân tích → “Cơ sở tri thức và liên hệ”.
 - Mỗi ứng dụng có một adapter; dịch vụ phân phối theo tên gói của ứng dụng đang ở tiền cảnh, adapter chỉ chịu trách nhiệm biến cửa sổ hiện tại thành “tiêu đề + danh sách tin nhắn”.
 - Khi cây trợ năng không có nội dung chính, ứng dụng chat được hỗ trợ sẽ tự động chụp màn hình và dùng mô hình tiếng Trung ngoại tuyến của ML Kit để nhận diện; không tải ảnh lên và không cần dịch vụ Google.
 - Việc chụp màn hình có giới hạn tần suất và cơ chế lùi thời gian chờ khi thất bại, không chụp liên tục mỗi giây; khi nhận diện sẽ tránh cửa sổ nổi của chính ứng dụng.
-- Với ứng dụng chưa được hỗ trợ (trừ 微信), có thể kích hoạt thủ công “Nhận diện ảnh chụp một lần” từ menu cửa sổ nổi.
+- Với ứng dụng chưa được hỗ trợ, có thể kích hoạt thủ công “Nhận diện ảnh chụp một lần” từ menu cửa sổ nổi.
 
 ## Câu hỏi thường gặp
 
@@ -159,7 +160,7 @@ Khả năng cao là ROM của hãng Trung Quốc đã đóng băng tiến trình
 <details>
 <summary><b>Không đọc được nội dung chính trong 飞书? Các ứng dụng khác dùng được không?</b></summary>
 
-Nội dung chính của tin nhắn trong 飞书 được tự vẽ nên không có chữ trong cây trợ năng; từ phiên bản 1.3, ứng dụng chuyển sang OCR ngoại tuyến cho hình chữ nhật của từng bong bóng. Với các ứng dụng khác chưa được hỗ trợ (trừ 微信), có thể nhấn “Nhận diện ảnh chụp một lần” trong menu cửa sổ nổi; sau khi OCR toàn màn hình, ứng dụng có thể phân tích theo cách tương tự, nhưng không phân biệt tin của tôi và của đối phương.
+Nội dung chính của tin nhắn trong 飞书 được tự vẽ nên không có chữ trong cây trợ năng; từ phiên bản 1.3, ứng dụng chuyển sang OCR ngoại tuyến cho hình chữ nhật của từng bong bóng. Với các ứng dụng khác chưa được hỗ trợ, có thể nhấn “Nhận diện ảnh chụp một lần” trong menu cửa sổ nổi; sau khi OCR toàn màn hình, ứng dụng có thể phân tích theo cách tương tự, nhưng không phân biệt tin của tôi và của đối phương.
 
 </details>
 
@@ -195,7 +196,7 @@ Hình minh họa ranh giới dữ liệu: đọc giao diện chat và OCR đư�
 2. Thêm một dòng vào `adapters` trong `capture/ChatCaptureService.kt`.
 3. Không cần thay đổi phần phân tích, câu trả lời ứng viên, cửa sổ nổi hoặc chức năng điền lại.
 
-Trước tiên hãy dùng `adb shell uiautomator dump` để xem ứng dụng đích cung cấp những gì; hiện có ba adapter chuyên biệt, ngoài ra còn có lối vào OCR thủ công cho các ứng dụng chưa được hỗ trợ (trừ phiên bản Android của 微信 đã bị gỡ khỏi cửa hàng ứng dụng hoàn toàn):
+Trước tiên hãy dùng `adb shell uiautomator dump` để xem ứng dụng đích cung cấp những gì; hiện có bốn adapter chuyên biệt, ngoài ra còn có lối vào OCR thủ công cho các ứng dụng chưa được hỗ trợ:
 
 | Ứng dụng | Tình trạng cây | Adapter thực hiện |
 |---|---|---|
@@ -240,7 +241,7 @@ JDK 17 + Android SDK (platform 35 / build-tools 35).
 - **OCR phụ thuộc vào quyền chụp màn hình của hệ thống**: dịch vụ trợ năng phải được hệ thống cho phép chụp màn hình; Xiaomi / HyperOS có thể từ chối (khung phân tích sẽ hiện lý do thất bại); không thể chụp cửa sổ được bảo vệ (`FLAG_SECURE`).
 - **OCR chỉ nhận diện được phần đang hiện trên màn hình**: không thể đọc phần bị cắt của tin nhắn dài; có thể có chữ sai.
 - **Kích thước gói tăng**: mô hình tiếng Trung ngoại tuyến của ML Kit làm APK tăng từ khoảng 12 MB lên khoảng 27 MB và chỉ build cho arm64-v8a.
-- **Phiên bản Android của 微信 đã bị gỡ khỏi cửa hàng ứng dụng hoàn toàn**: phiên bản hiện tại không còn thu thập, OCR, phân tích hoặc điền nội dung 微信.
+- **Không hỗ trợ ứng dụng ẩn nội dung giao diện hoặc chặn chụp màn hình**: trong các ứng dụng này, phiên bản hiện tại không thu thập, không chụp màn hình và không điền nội dung.
 
 ## Nhóm trao đổi / Thu thập yêu cầu
 

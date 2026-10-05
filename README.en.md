@@ -8,11 +8,11 @@
 
 [![Stars](https://img.shields.io/github/stars/jev-chat/jev-chat-jarvis?style=flat-square&logo=github&label=Stars)](https://github.com/jev-chat/jev-chat-jarvis/stargazers)
 [![Forks](https://img.shields.io/github/forks/jev-chat/jev-chat-jarvis?style=flat-square&logo=github&label=Forks)](https://github.com/jev-chat/jev-chat-jarvis/forks)
-[![Version](https://img.shields.io/badge/Version-v1.4-1f6feb?style=flat-square)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/Version-v1.5-1f6feb?style=flat-square)](CHANGELOG.md)
 [![Android](https://img.shields.io/badge/Android-11%2B-3DDC84?style=flat-square&logo=android&logoColor=white)](#quick-start)
 [![License](https://img.shields.io/github/license/jev-chat/jev-chat-jarvis?style=flat-square)](LICENSE)
 
-[Website](https://chatjevs.com) · [Download APK](apk/jev-assistant-v1.4-release.apk) · [Releases](https://github.com/jev-chat/jev-chat-jarvis/releases) · [Changelog](CHANGELOG.md) · [macOS](https://github.com/jev-chat/jev-chat-mac) · [Windows](https://github.com/jev-chat/jev-chat-windows)
+[Website](https://chatjevs.com) · [Download APK](apk/jev-assistant-v1.5-release.apk) · [Releases](https://github.com/jev-chat/jev-chat-jarvis/releases) · [Changelog](CHANGELOG.md) · [macOS](https://github.com/jev-chat/jev-chat-mac) · [Windows](https://github.com/jev-chat/jev-chat-windows)
 
 [简体中文](README.md) · **English** · [Tiếng Việt](README.vi.md)
 
@@ -67,6 +67,7 @@
 |---|---|---|---|
 | QQ for Android | Full workflow supported | Accessibility nodes | Tested with version 9.3.50 in group chats; one-to-one support is inferred from the same UI structure |
 | X / Twitter DMs | Full workflow supported | Parses `content-desc` on Compose nodes | Tested with version 12.25 in Chinese; the English UI has not been verified |
+| Soul | Full workflow supported | Accessibility nodes | Tested with version 6.38 on a Xiaomi 14; a contributor also tested it on a vivo S30 |
 | Feishu / Lark | OCR fallback verified on a real device | Reads message bubble bounds through accessibility, then extracts text with offline ML Kit OCR | Message text is custom-rendered and absent from the accessibility tree. Since v1.3, each bubble is processed with OCR; read status is used to identify the sender |
 | Any other app | Manual capture supported | Full-screen OCR via "Scan screen once" in the overlay menu | Manual only; all text is treated as coming from the other person, with a notice in the panel |
 | Desktop / web | Planned | Screenshots with OCR / vision | Same core, different capture method |
@@ -75,10 +76,10 @@ Jev only reads conversations on your own device that you are authorized to view.
 
 ## Quick Start
 
-**1. Install the app.** A signed release APK is included in the repository: [`apk/jev-assistant-v1.4-release.apk`](apk/jev-assistant-v1.4-release.apk). Requires Android 11 or later and an ARM64 (`arm64-v8a`) device. Downloads for other versions are available under [Releases](https://github.com/jev-chat/jev-chat-jarvis/releases).
+**1. Install the app.** A signed release APK is included in the repository: [`apk/jev-assistant-v1.5-release.apk`](apk/jev-assistant-v1.5-release.apk). Requires Android 11 or later and an ARM64 (`arm64-v8a`) device. Downloads for other versions are available under [Releases](https://github.com/jev-chat/jev-chat-jarvis/releases).
 
 ```bash
-adb install -r apk/jev-assistant-v1.4-release.apk
+adb install -r apk/jev-assistant-v1.5-release.apk
 ```
 
 **2. Add your API key.** Open the app, go to Settings, and find the API section. It has three cards: Assessment API, Reply API, and Vision API. For the simplest setup, enter an [OpenRouter](https://openrouter.ai/) API key under Assessment API and leave the other two blank; they will inherit the same key. To change the reply model (the default is `deepseek/deepseek-chat-v3.1`; Gemini and OpenAI are subject to regional restrictions in mainland China), choose a preset under Reply API, such as OpenRouter, DeepSeek, or Tongyi-compatible, or enter a custom URL. Each card has its own connection test.

@@ -2,11 +2,24 @@
 
 格式：每版按 新增 / 改进 / 修复 / 已知限制 / 下载 归类，人话版，不是提交列表。
 
-## 未发布
+## v1.5 — 2026-10-05
 
 **新增**
+- 支持 Soul：读取聊天、判断、候选回复、填入整条链路都能用（感谢 @ahxoeh，#71）。
 - 判断接口新增「Vercel」预设。选中后自动填好地址 `https://ai-gateway.vercel.sh/typesafe` 和模型 `typesafe-ai/jev`，密钥用 Vercel AI Gateway 的 key。走的是网关的 TypeSafe 兼容接口 `POST /v1/systemone`，和 TypeSafe 直连同一套请求体与 `noul` 答案，默认仍是 OpenRouter。
 - 判断接口新增「OpenCode Zen」预设。选中后自动填好地址 `https://opencode.ai/zen` 和模型 `jev-1.13`，密钥用 [OpenCode Zen](https://opencode.ai/zen) 的 key。走的是 Zen 的 TypeSafe 兼容接口 `POST /v1/systemone`，同样一套请求体与 `noul` 答案；`jev-1.13` 输出免费（输入 $0.042/M，一次判断约 1000 输入 token，约 $0.00004），也可以手动改成限时免费的 `jev-1.13-free`（功能受限）。
+
+**改进**
+- 无障碍服务的注册名称改为 Jev 自己的名称。
+- 面板更稳：悬浮窗自己重绘不再触发重复分析；对方发新消息后候选回复不再一闪就没；网络卡住时每轮最多等 120 秒，之后给出可重试的提示，不再一直转圈（#71）。
+- 截屏识别的图片处理移出主线程，识别时界面不再卡顿（#71）。
+- 回复和视觉请求明确关闭流式返回，兼容更多中转网关（#74）。
+
+**已知限制**
+- 升级后需要到系统设置里重新打开一次 Jev 助手的无障碍开关（注册名称变了，原来的授权不再生效）。
+- 隐藏界面内容或禁止截屏的 App 不支持。
+
+**下载**：[jev-assistant-v1.5-release.apk](https://github.com/jev-chat/jev-chat-jarvis/raw/main/apk/jev-assistant-v1.5-release.apk)
 
 ## v1.4 — 2026-09-23
 
@@ -24,7 +37,7 @@
 **已知限制**
 - 判断接口需要自己配置 API Key，可以去 [jev.bocha.cn](https://jev.bocha.cn) 领限时免费的。
 
-**下载**：[jev-assistant-v1.4-release.apk](https://github.com/jev-chat/jev-chat-jarvis/raw/v1.4/apk/jev-assistant-v1.4-release.apk)
+**下载**：已下架，请使用最新版。
 
 ## v1.3 — 2026-09-22
 
@@ -42,7 +55,7 @@
 - 新的截屏识别只能读屏幕上当前可见的部分，长消息看不全的地方读不到，偶尔有错字。
 - X（Twitter）目前只验证过中文界面，英文界面和群聊私信还没测过；小米 / HyperOS 后台冻结的老问题仍然存在。
 
-**下载**：[jev-assistant-v1.3-release.apk](https://github.com/jev-chat/jev-chat-jarvis/raw/v1.3/apk/jev-assistant-v1.3-release.apk)
+**下载**：已下架，请使用最新版。
 
 ## v1.2 — 2026-09-21
 
@@ -53,7 +66,7 @@
 - 群聊私信、英文界面尚未验证。
 - 小米 / HyperOS 仍可能因为省电策略把后台冻结，导致偶尔读不到新消息。
 
-**下载**：[jev-assistant-v1.2-release.apk](https://github.com/jev-chat/jev-chat-jarvis/raw/v1.2/apk/jev-assistant-v1.2-release.apk)
+**下载**：已下架，请使用最新版。
 
 ## v1.1 — 2026-09-21
 
@@ -64,7 +77,7 @@
 **已知限制**
 - QQ 一对一聊天未经真机验证。
 
-**下载**：[jev-assistant-v1.1-release.apk](https://github.com/jev-chat/jev-chat-jarvis/raw/v1.1/apk/jev-assistant-v1.1-release.apk)
+**下载**：已下架，请使用最新版。
 
 ## v1.0 — 2026-09-21
 
@@ -80,7 +93,7 @@
 
 **安装**：Android 11+，需要一个 [OpenRouter](https://openrouter.ai/) API Key。
 
-**下载**：[jev-assistant-v1.0-release.apk](https://github.com/jev-chat/jev-chat-jarvis/raw/v1.0/apk/jev-assistant-v1.0-release.apk)
+**下载**：已下架，请使用最新版。
 
 ---
 

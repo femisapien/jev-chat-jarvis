@@ -175,7 +175,7 @@ class OverlayController(private val ctx: Context) {
         val scroll = ScrollView(ctx).apply {
             isVerticalScrollBarEnabled = false
             // Cap the height so the panel stays in the upper area and does not
-            // cover the WeChat input box / keyboard. Scroll inside if taller.
+            // cover the chat input box / keyboard. Scroll inside if taller.
             layoutParams = LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, (screenH * 0.40f).roundToInt()).apply { topMargin = dp(6) }
         }
@@ -357,8 +357,8 @@ class OverlayController(private val ctx: Context) {
     }
 
     /**
-     * A neutral one-time notice (used when the foreground is WeChat, which is
-     * fully disabled). Not framed as an error: shows the bubble, drops any stale
+     * A neutral one-time notice (used when the foreground is an app that is not
+     * supported). Not framed as an error: shows the bubble, drops any stale
      * judgment from the previous chat, puts the message in the panel and opens it
      * once so the user actually reads it. Never auto-dismisses (unlike a toast)
      * and never takes input focus (the overlay window is FLAG_NOT_FOCUSABLE).
