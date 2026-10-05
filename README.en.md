@@ -74,6 +74,8 @@
 
 Jev only reads conversations on your own device that you are authorized to view. It is not designed to target any particular platform.
 
+> **Use at your own risk:** Using Jev inside third-party apps such as QQ, Feishu, X, or Soul may not comply with those apps' terms of service, and your account could be restricted or banned. Decide for yourself whether to use it.
+
 ## Quick Start
 
 **1. Install the app.** A signed release APK is included in the repository: [`apk/jev-assistant-v1.5-release.apk`](apk/jev-assistant-v1.5-release.apk). Requires Android 11 or later and an ARM64 (`arm64-v8a`) device. Downloads for other versions are available under [Releases](https://github.com/jev-chat/jev-chat-jarvis/releases).
@@ -305,4 +307,4 @@ Copyright © 2026 Finderchangchang and the jev-chat contributors. The code is av
 - **Attribution is required:** Keep LICENSE and NOTICE when distributing or using the project commercially, and credit the source in your product's About page, documentation, or release page. Suggested wording: `Based on Jev Chat Assistant (https://github.com/jev-chat/jev-chat-jarvis)`.
 - Do not use the names "Jev Chat Assistant" ("Jev 聊天助手") or "jev-chat", or the domain chatjevs.com, to imply that your product was made or endorsed by the original authors.
 
-**Disclaimer:** This project only processes conversations on your own device that you are authorized to view. Follow the license agreements of QQ, X, Feishu, and any other apps you use, as well as applicable local laws and regulations. The authors accept no responsibility for the consequences of its use.
+**Disclaimer:** This project only processes conversations on your own device that you are authorized to view. Follow the terms of service of QQ, X, Feishu, Soul, and any other apps you use, as well as applicable local laws and regulations. The authors accept no responsibility for the consequences of its use.

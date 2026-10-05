@@ -75,6 +75,7 @@ class MainActivity : AppCompatActivity() {
         // Readiness card
         container.addView(statusCard(ready, a11y, overlay, key))
         container.addView(privacyHint())
+        container.addView(platformRiskHint())
 
         // Permission checklist
         container.addView(sectionLabel("权限设置"))
@@ -132,6 +133,12 @@ class MainActivity : AppCompatActivity() {
         setPadding(dp(2), dp(8), 0, 0)
         setOnClickListener { openUrl(PRIVACY_URL) }
     }
+
+    /** One line under the privacy hint: using it inside third-party chat apps is at the user's own risk. */
+    private fun platformRiskHint(): View =
+        text("在第三方聊天 App 里使用可能不符合其用户协议，账号有被限制的风险，请自行判断", 11f, sub).apply {
+            setPadding(dp(2), dp(4), 0, 0)
+        }
 
     /** Opens an external link; swallows the failure with a toast rather than crashing. */
     private fun openUrl(url: String) {
