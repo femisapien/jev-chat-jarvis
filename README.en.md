@@ -56,7 +56,7 @@
 - **It assesses the conversation before drafting a reply.** Most tools simply ask a model to write a response. Jev first uses an assessment model to identify the other person's intent, gauge the risk, and decide whether a reply can wait. That assessment guides its suggestions.
 - **It leaves your chat apps alone.** No hooking, modified app packages, access to app APIs or accounts, or database reads. Jev uses Android's accessibility service to read the conversation currently visible on your screen.
 - **You're always in control of sending.** Jev only fills in the text field. It never sends messages automatically or interacts with transfers, red packets, or payment collection.
-- **One core, multiple platforms.** Tested on real devices with QQ and X; Feishu uses OCR to read message text. Adding another app takes an adapter of just a few dozen lines.
+- **One core, multiple platforms.** Tested on real devices with QQ and X; Feishu uses OCR to read message text; WhatsApp is verified against screen recordings. Adding another app takes an adapter of just a few dozen lines.
 - **It has context about your contacts and your life.** A local knowledge base and contact profiles supply relevant notes and conversation history during analysis, keeping replies consistent with the background you've provided.
 - **Choose your own APIs.** Configure assessment, reply generation, and vision separately, using your own keys and API allowances. Requests go directly to your chosen providers.
 - **Local privacy controls.** API keys stay in the app's private storage. Chat content is sent to your configured APIs only during analysis and is neither saved to disk nor written to logs by default.
@@ -68,12 +68,13 @@
 | QQ for Android | Full workflow supported | Accessibility nodes | Tested with version 9.3.50 in group chats; one-to-one support is inferred from the same UI structure |
 | X / Twitter DMs | Full workflow supported | Parses `content-desc` on Compose nodes | Tested with version 12.25 in Chinese; the English UI has not been verified |
 | Feishu / Lark | OCR fallback verified on a real device | Reads message bubble bounds through accessibility, then extracts text with offline ML Kit OCR | Message text is custom-rendered and absent from the accessibility tree. Since v1.3, each bubble is processed with OCR; read status is used to identify the sender |
+| WhatsApp | One-to-one chats (beta) | Accessibility nodes | One-to-one chats only; group chats are not read and WhatsApp is never screenshotted; replies follow the language of the other person's latest message. Reading rules by [@smgonthebeat](https://github.com/smgonthebeat) (#73), verified against WhatsApp 2.26.38.73 recordings |
 | Any other app | Manual capture supported | Full-screen OCR via "Scan screen once" in the overlay menu | Manual only; all text is treated as coming from the other person, with a notice in the panel |
 | Desktop / web | Planned | Screenshots with OCR / vision | Same core, different capture method |
 
 Jev only reads conversations on your own device that you are authorized to view. It is not designed to target any particular platform.
 
-> **Use at your own risk:** Using Jev inside third-party apps such as QQ, Feishu, or X may not comply with those apps' terms of service, and your account could be restricted or banned. Decide for yourself whether to use it.
+> **Use at your own risk:** Using Jev inside third-party apps such as QQ, Feishu, X, or WhatsApp may not comply with those apps' terms of service, and your account could be restricted or banned. Decide for yourself whether to use it.
 
 ## Quick Start
 
@@ -306,4 +307,4 @@ Copyright © 2026 Finderchangchang and the jev-chat contributors. The code is av
 - **Attribution is required:** Keep LICENSE and NOTICE when distributing or using the project commercially, and credit the source in your product's About page, documentation, or release page. Suggested wording: `Based on Jev Chat Assistant (https://github.com/jev-chat/jev-chat-jarvis)`.
 - Do not use the names "Jev Chat Assistant" ("Jev 聊天助手") or "jev-chat", or the domain chatjevs.com, to imply that your product was made or endorsed by the original authors.
 
-**Disclaimer:** This project only processes conversations on your own device that you are authorized to view. Follow the terms of service of QQ, X, Feishu, and any other apps you use, as well as applicable local laws and regulations. The authors accept no responsibility for the consequences of its use.
+**Disclaimer:** This project only processes conversations on your own device that you are authorized to view. Follow the terms of service of QQ, X, Feishu, WhatsApp, and any other apps you use, as well as applicable local laws and regulations. The authors accept no responsibility for the consequences of its use.

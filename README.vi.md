@@ -56,7 +56,7 @@
 - **Nó phân tích trước, rồi mới soạn câu trả lời.** Hầu hết công cụ chỉ yêu cầu mô hình soạn thẳng một câu trả lời. Jev trước tiên dùng mô hình phân tích để xác định ý định thật của đối phương, mức độ nguy hiểm, có nên trả lời ngay hay không, rồi mới soạn câu trả lời dựa trên kết quả đó.
 - **Không can thiệp vào ứng dụng chat của bạn.** Không hook, không sửa gói, không sử dụng API hay tài khoản của bất kỳ ứng dụng nào, không đọc cơ sở dữ liệu; chỉ dùng dịch vụ trợ năng của hệ thống để đọc cuộc trò chuyện đang hiển thị trên màn hình.
 - **Quyền gửi luôn thuộc về bạn.** Ứng dụng chỉ điền câu trả lời vào ô nhập, không bao giờ tự gửi, không can thiệp vào việc chuyển tiền, lì xì hoặc thu tiền.
-- **Một lõi, nhiều nền tảng.** QQ và X đã chạy thử trên thiết bị thật; 飞书 bổ sung nội dung chính bằng OCR. Thêm một ứng dụng chỉ cần viết một adapter vài chục dòng.
+- **Một lõi, nhiều nền tảng.** QQ và X đã chạy thử trên thiết bị thật; 飞书 bổ sung nội dung chính bằng OCR, WhatsApp được kiểm chứng bằng dữ liệu ghi màn hình. Thêm một ứng dụng chỉ cần viết một adapter vài chục dòng.
 - **Nó hiểu những người và việc liên quan đến bạn.** Cơ sở tri thức cục bộ và hồ sơ liên hệ tự động đưa các ghi chú phù hợp cùng lịch sử trò chuyện của người đó vào quá trình phân tích, giúp câu trả lời không mâu thuẫn với thiết lập của bạn.
 - **Bạn tự cấu hình API.** Địa chỉ, khóa và mô hình cho ba luồng phân tích, trả lời và thị giác đều có thể điền riêng. Khi phân tích, nội dung trò chuyện và thông tin nền đang bật sẽ được gửi tới nhà cung cấp mô hình mà bạn cấu hình; tác giả không vận hành máy chủ trung gian.
 - **Có thể kiểm soát dữ liệu lưu trên máy.** Khóa, cơ sở tri thức và lịch sử tùy chọn nằm trong không gian riêng của ứng dụng; ảnh chụp màn hình chỉ được OCR trên máy và không tải lên. Cách nhà cung cấp bên thứ ba xử lý nội dung nhận được tuân theo chính sách quyền riêng tư của họ.
@@ -68,12 +68,13 @@
 | QQ Android | ✅ Hỗ trợ đầy đủ từ đầu đến cuối | Đọc node bằng dịch vụ trợ năng | Đã kiểm thử trên 9.3.50 (trò chuyện nhóm); 1v1 được suy luận theo cùng cấu trúc |
 | X / Twitter tin nhắn riêng | ✅ Hỗ trợ đầy đủ từ đầu đến cuối | Phân tích content-desc của node Compose | Đã kiểm thử trên 12.25, giao diện tiếng Trung; chưa xác minh giao diện tiếng Anh |
 | 飞书 / Lark | ✅ Dự phòng bằng OCR (đã xác minh trên thiết bị thật) | Đọc hình chữ nhật bong bóng bằng dịch vụ trợ năng + OCR tiếng Trung ngoại tuyến bằng ML Kit để nhận dạng nội dung chính | Nội dung chính tự vẽ không có trong cây trợ năng; từ 1.3, thực hiện OCR cho hình chữ nhật từng bong bóng; phân biệt tôi/đối phương theo trạng thái đã đọc |
+| WhatsApp | 🧪 Trò chuyện 1v1 | Đọc node bằng dịch vụ trợ năng | Chỉ đọc trò chuyện 1v1, không đọc nhóm, không chụp màn hình; trả lời theo ngôn ngữ tin nhắn mới nhất của đối phương. Quy tắc đọc của [@smgonthebeat](https://github.com/smgonthebeat) (#73), kiểm chứng với bản ghi WhatsApp 2.26.38.73 |
 | Ứng dụng khác chưa hỗ trợ | ✅ Thủ công | OCR toàn màn hình bằng “Nhận diện ảnh chụp một lần” trong menu cửa sổ nổi | Không tự động, không phân biệt tôi/đối phương (mọi nội dung đều được coi là lời của đối phương và được ghi rõ trong khung phân tích); không hỗ trợ ứng dụng ẩn nội dung giao diện hoặc chặn chụp màn hình |
 | Máy tính để bàn / web | ⏳ Đang lên kế hoạch | Ảnh chụp màn hình + OCR / thị giác | Cùng một lõi, chỉ thay đổi cách thu thập |
 
 Dự án này chỉ đọc nội dung chat trên thiết bị của chính bạn, nơi bạn có quyền xem và phiên bản hiện tại hỗ trợ; không đọc ứng dụng ẩn nội dung giao diện hoặc chặn chụp màn hình.
 
-> **Rủi ro khi sử dụng:** Dùng trợ lý trong các ứng dụng bên thứ ba như QQ, 飞书 hoặc X có thể không phù hợp với thỏa thuận người dùng của ứng dụng đó, tài khoản có thể bị hạn chế hoặc khóa. Hãy tự cân nhắc trước khi sử dụng.
+> **Rủi ro khi sử dụng:** Dùng trợ lý trong các ứng dụng bên thứ ba như QQ, 飞书, X hoặc WhatsApp có thể không phù hợp với thỏa thuận người dùng của ứng dụng đó, tài khoản có thể bị hạn chế hoặc khóa. Hãy tự cân nhắc trước khi sử dụng.
 
 ## Bắt đầu nhanh
 
@@ -197,7 +198,7 @@ Hình minh họa ranh giới dữ liệu: đọc giao diện chat và OCR đư�
 2. Thêm một dòng vào `adapters` trong `capture/ChatCaptureService.kt`.
 3. Không cần thay đổi phần phân tích, câu trả lời ứng viên, cửa sổ nổi hoặc chức năng điền lại.
 
-Trước tiên hãy dùng `adb shell uiautomator dump` để xem ứng dụng đích cung cấp những gì; hiện có ba adapter chuyên biệt, ngoài ra còn có lối vào OCR thủ công cho các ứng dụng chưa được hỗ trợ:
+Trước tiên hãy dùng `adb shell uiautomator dump` để xem ứng dụng đích cung cấp những gì; hiện có bốn adapter chuyên biệt, ngoài ra còn có lối vào OCR thủ công cho các ứng dụng chưa được hỗ trợ:
 
 | Ứng dụng | Tình trạng cây | Adapter thực hiện |
 |---|---|---|
@@ -295,4 +296,4 @@ Copyright © 2026 Finderchangchang và những người đóng góp cho jev-chat
 - **Bắt buộc ghi nguồn**: khi phân phối hoặc sử dụng thương mại, phải giữ lại LICENSE và NOTICE, đồng thời ghi nguồn trong trang “Giới thiệu”, tài liệu hoặc trang phát hành của sản phẩm. Cách ghi được khuyến nghị: `Dựa trên Jev 聊天助手（https://github.com/jev-chat/jev-chat-jarvis） để phát triển tiếp`.
 - Không dùng tên “Jev 聊天助手”, “jev-chat” hoặc tên miền chatjevs.com để gợi ý rằng sản phẩm do tác giả gốc phát hành hoặc chứng thực.
 
-**Quyền riêng tư và miễn trừ trách nhiệm**: khi kích hoạt phân tích, nội dung trò chuyện và thông tin nền đang bật sẽ được gửi tới nhà cung cấp mô hình bên thứ ba do bạn tự cấu hình; ảnh chụp màn hình chỉ được OCR trên máy. Vui lòng đọc [chính sách quyền riêng tư](PRIVACY.md) cùng chính sách của nhà cung cấp đã chọn và tuân thủ điều khoản cấp phép của QQ, X, 飞书 và các phần mềm khác cùng pháp luật và quy định địa phương. Tác giả không chịu trách nhiệm về hành vi xử lý dữ liệu hoặc hậu quả sử dụng của nhà cung cấp bên thứ ba.
+**Quyền riêng tư và miễn trừ trách nhiệm**: khi kích hoạt phân tích, nội dung trò chuyện và thông tin nền đang bật sẽ được gửi tới nhà cung cấp mô hình bên thứ ba do bạn tự cấu hình; ảnh chụp màn hình chỉ được OCR trên máy. Vui lòng đọc [chính sách quyền riêng tư](PRIVACY.md) cùng chính sách của nhà cung cấp đã chọn và tuân thủ điều khoản của QQ, X, 飞书, WhatsApp và các phần mềm khác cùng pháp luật và quy định địa phương. Tác giả không chịu trách nhiệm về hành vi xử lý dữ liệu hoặc hậu quả sử dụng của nhà cung cấp bên thứ ba.

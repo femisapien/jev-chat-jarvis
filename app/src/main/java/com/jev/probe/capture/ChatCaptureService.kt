@@ -76,7 +76,7 @@ open class ChatCaptureService : AccessibilityService() {
 
     /** Adapted chat apps, keyed by package name. Apps in [BLOCKED_PKGS] are
      *  never read at all (see [maybeCapture] / [onAccessibilityEvent]). */
-    private val adapters = listOf(QQAdapter(), XAdapter(), FeishuAdapter()).associateBy { it.pkg }
+    private val adapters = listOf(QQAdapter(), XAdapter(), FeishuAdapter(), WhatsAppAdapter()).associateBy { it.pkg }
 
     /** Submit to the worker, ignoring rejection after the service is torn down
      *  (a stale overlay callback must never crash the process). */
@@ -354,7 +354,7 @@ open class ChatCaptureService : AccessibilityService() {
             // still has something to tap when OCR is off, deduped, or comes back
             // empty — previously all three cases left the screen with no bubble.
             if (overlay?.isShowing() != true) overlay?.showIdle(snapshot.title)
-            if (prefs.ocrFallback) {
+            if (prefs.ocrFallback && pkg !in NO_SCREENSHOT_PKGS) {
                 // Gate BEFORE the shot, not after the OCR. Feishu's tree is empty
                 // on every content-changed event, and a successful shot resets the
                 // failure backoff — so without this the caret blinking or an
@@ -525,6 +525,7 @@ open class ChatCaptureService : AccessibilityService() {
         // Blocked apps: a manual "截屏识别一次" must NOT take a screenshot there —
         // just show the notice (a manual tap always shows it).
         if (isBlocked(pkg)) { showBlocked(auto = false); return }
+        if (pkg in NO_SCREENSHOT_PKGS) { overlay?.showError("这个应用里不使用截屏识别"); return }
         // Top bar text, if this app has one we can read; else the first OCR line.
         val title = root?.let {
             findTitleInActionBar(it, Int.MAX_VALUE, resources.displayMetrics.widthPixels, resources, 0.15, 0.85)
@@ -824,6 +825,10 @@ open class ChatCaptureService : AccessibilityService() {
         /** Apps that are never read: they protect their content against screen
          *  reading or screenshots, so any capture attempt there is off-limits.
          *  No adapter, no capture, only a one-time "not supported" notice. */
+        /** Supported apps that are read through the node tree only and never
+         *  screenshotted: no OCR fallback, no manual "截屏识别一次". */
+        private val NO_SCREENSHOT_PKGS = setOf(WhatsAppRules.PACKAGE)
+
         private val BLOCKED_PKGS = setOf("com.tencent.mm", "cn.soulapp.android")
 
         /** Shown once per visit to a blocked app. Plain words, full-width
