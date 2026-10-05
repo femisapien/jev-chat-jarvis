@@ -89,7 +89,14 @@ open class ChatCaptureService : AccessibilityService() {
     private var lastSignature: String = ""
     private var activePkg: String? = null
     private var analyzing = false
+    /** A "换一组" redraft is in flight (candidates only; the judgment stays). */
+    private var regenerating = false
     private val session = ConversationSession()
+    /** Tells new incoming messages apart from scrolling through history. */
+    private val gate = NewMessageGate()
+    /** The snapshot and knowledge context of the last analysis, reused by "换一组". */
+    private var lastAnalyzed: ChatSnapshot? = null
+    private var lastCtx: com.jev.probe.core.kb.ChatContext? = null
     private val analysisTasks = ArrayList<Future<*>>()
     private var destroyed = false
     private val preferencesListener = SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
@@ -107,9 +114,20 @@ open class ChatCaptureService : AccessibilityService() {
         main.removeCallbacks(debounce)
         pendingSnapshot = null
         analyzing = false
+        regenerating = false
         analysisTasks.forEach { it.cancel(true) }
         analysisTasks.clear()
         overlay?.resetForNewConversation()
+    }
+
+    /** Drop the round in flight (its result would be stale) but keep what the card shows. */
+    private fun cancelInFlight() {
+        session.invalidate()
+        main.removeCallbacks(debounce)
+        analyzing = false
+        regenerating = false
+        analysisTasks.forEach { it.cancel(true) }
+        analysisTasks.clear()
     }
 
     private fun observeTarget(target: ConversationSession.Target?) {
@@ -119,6 +137,9 @@ open class ChatCaptureService : AccessibilityService() {
             activePkg = null
             lastSignature = ""
             lastOcrSignature = ""
+            gate.reset()
+            lastAnalyzed = null
+            lastCtx = null
         }
     }
 
@@ -226,6 +247,7 @@ open class ChatCaptureService : AccessibilityService() {
         overlay?.onManualAnalyze = {
             currentSnapshot?.let { pendingSnapshot = it; runAnalysis() }
         }
+        overlay?.onRegenerate = { regenerateReplies() }
         // Bubble menu: file the open conversation as a knowledge-base contact.
         // Contacts are never created automatically — this is the one-tap way in.
         overlay?.onSaveContact = {
@@ -338,10 +360,12 @@ open class ChatCaptureService : AccessibilityService() {
         // bubble so the menu stays reachable. Without this, opening QQ / Feishu on
         // their list screen produced no bubble at all.
         val rawSnapshot = adapter.extract(root, resources)
-        if (rawSnapshot == null) { leaveConversation(); overlay?.showIdle(null); return }
+        if (rawSnapshot == null) { scheduleLeave(); return }
         val target = targetFor(root)
-        if (target == null) { leaveConversation(); overlay?.showIdle(null); return }
+        if (target == null) { scheduleLeave(); return }
+        main.removeCallbacks(confirmLeave)
         observeTarget(target)
+        overlay?.setApp(pkg)
         // Use only this window's title; never inherit another conversation's title.
         val snapshot = rawSnapshot
         if (!prefs.isAllowed(snapshot.title)) { leaveConversation(); overlay?.hide(); return }
@@ -378,16 +402,19 @@ open class ChatCaptureService : AccessibilityService() {
         currentSnapshot = snapshot
         val sig = snapshot.signature()
         val showing = overlay?.isShowing() == true
-        // Same content and the bubble is already up → nothing to do.
+        // Same content and the card is already up → nothing to do.
         if (sig == lastSignature && showing) return
-        // Same content but the bubble is gone (killed by MIUI, or we left and came
-        // back) → just put the bubble back, do NOT re-analyze (saves tokens/time).
-        if (sig == lastSignature && !showing) { overlay?.showIdle(snapshot.title); return }
-        // Anything else reaching here is a genuinely different conversation (new
-        // app, or new content in this one) — a leftover judgment/candidates from
-        // whatever was shown before must not leak into it.
-        cancelAnalysis()
         lastSignature = sig
+        // Scrolling through history changes what is on screen but brings nothing
+        // new: keep the card exactly as it is (no clearing, no re-analysis). The
+        // same goes for the user's own new message. Only a first look at a chat or
+        // a new incoming message goes on to analysis.
+        when (gate.observe(snapshot.messages)) {
+            NewMessageGate.Verdict.NOTHING_NEW, NewMessageGate.Verdict.NEW_FROM_ME -> {
+                overlay?.showIdle(snapshot.title); return
+            }
+            NewMessageGate.Verdict.FIRST_LOOK, NewMessageGate.Verdict.NEW_FROM_OTHER -> Unit
+        }
         Log.d(TAG, "snapshot[$pkg] title=${snapshot.title} n=${snapshot.messages.size} " +
             snapshot.messages.takeLast(6).joinToString(" | ") { "${it.side}:${it.text.length}" }) // sides + lengths only, never content
 
@@ -397,9 +424,68 @@ open class ChatCaptureService : AccessibilityService() {
             overlay?.showIdle(snapshot.title); return
         }
 
+        // A newer message makes any round in flight stale; the card keeps showing
+        // the previous result until the new one lands.
+        cancelInFlight()
         pendingSnapshot = snapshot
         main.removeCallbacks(debounce)
         main.postDelayed(debounce, 800) // debounce bursts of content-changed events
+    }
+
+    /**
+     * A chat app's tree can briefly read as "not a chat" while its list re-lays
+     * out (QQ while scrolling). Leave the conversation only if it still reads
+     * that way after a short grace period; any good read in between cancels it.
+     */
+    private val confirmLeave = Runnable {
+        val root = rootInActiveWindow
+        val adapter = root?.packageName?.toString()?.let { adapters[it] }
+        val gone = root == null || adapter == null ||
+            adapter.extract(root, resources) == null || targetFor(root) == null
+        if (gone) { leaveConversation(); overlay?.showIdle(null) }
+    }
+
+    private fun scheduleLeave() {
+        if (session.target == null) { leaveConversation(); overlay?.showIdle(null); return }
+        main.removeCallbacks(confirmLeave)
+        main.postDelayed(confirmLeave, LEAVE_CONFIRM_MS)
+    }
+
+    /** "换一组" / 重试: redraft the candidates only; the judgment on the card stays. */
+    private fun regenerateReplies() {
+        if (analyzing || regenerating || destroyed || !prefs.enabled) return
+        val snapshot = lastAnalyzed ?: currentSnapshot ?: return
+        val token = session.token() ?: return
+        if (!isCurrent(token)) return
+        if (!prefs.hasKey()) { overlay?.showError("未设置判断接口密钥，去设置里填"); return }
+        regenerating = true
+        val avoid = overlay?.currentReplyTexts().orEmpty()
+        overlay?.beginRegenerate()
+        val client = JevClient(prefs)
+        val rel = prefs.relationship
+        val ctx = lastCtx
+        val count = prefs.candidateCount
+        submitAnalysis {
+            var replyError: String? = null
+            val ranked = try {
+                withHardTimeout(REPLY_TIMEOUT_MS, "回复接口") {
+                    client.draftAndRank(snapshot, rel, ctx, count, avoid)
+                }
+            } catch (e: Exception) {
+                replyError = replyErrorText(e)
+                Log.w(TAG, "redraft failed: $replyError")
+                emptyList()
+            }
+            main.post {
+                regenerating = false
+                if (isCurrent(token)) overlay?.showReplies(ranked, replyError) { text -> fillInput(token, text) }
+            }
+        }
+    }
+
+    private fun replyErrorText(e: Exception): String {
+        val m = e.message ?: e.javaClass.simpleName
+        return if (m.contains("超时")) "生成超时" else m
     }
 
     private fun isBlocked(pkg: String?): Boolean = pkg != null && pkg in BLOCKED_PKGS
@@ -444,8 +530,9 @@ open class ChatCaptureService : AccessibilityService() {
         if (!prefs.hasKey()) { overlay?.showError("未设置判断接口密钥，去设置里填"); return }
         val token = session.begin() ?: return
         analyzing = true
-        overlay?.showLoading()
+        overlay?.beginRound()
         overlay?.setNote(snapshot.note)
+        val count = prefs.candidateCount
         val client = JevClient(prefs)
         val rel = prefs.relationship
         submitAnalysis {
@@ -456,6 +543,8 @@ open class ChatCaptureService : AccessibilityService() {
             }
             main.post {
                 if (!isCurrent(token)) return@post
+                lastAnalyzed = snapshot
+                lastCtx = ctx
                 overlay?.setContextInfo(ctx?.notes?.size ?: 0, ctx?.history?.size ?: 0)
                 var remaining = 2
                 fun completed() {
@@ -467,7 +556,7 @@ open class ChatCaptureService : AccessibilityService() {
                 }
                 submitAnalysis {
                     val judgment = try {
-                        withHardTimeout(ROUND_TIMEOUT_MS, "判断接口") { client.judge(snapshot, rel, ctx) }
+                        withHardTimeout(JUDGE_TIMEOUT_MS, "判断接口") { client.judge(snapshot, rel, ctx) }
                     } catch (e: Exception) {
                         Log.w(TAG, "judge round failed: ${e.message}")
                         null
@@ -489,11 +578,11 @@ open class ChatCaptureService : AccessibilityService() {
                     var replyError: String? = null
                     val t0 = SystemClock.elapsedRealtime()
                     val ranked = try {
-                        withHardTimeout(ROUND_TIMEOUT_MS, "回复接口") {
-                            client.draftAndRank(snapshot, rel, ctx)
+                        withHardTimeout(REPLY_TIMEOUT_MS, "回复接口") {
+                            client.draftAndRank(snapshot, rel, ctx, count)
                         }
                     } catch (e: Exception) {
-                        replyError = e.message ?: e.javaClass.simpleName
+                        replyError = replyErrorText(e)
                         Log.w(TAG, "reply failed after ${SystemClock.elapsedRealtime() - t0}ms: $replyError")
                         emptyList()
                     }
@@ -694,19 +783,21 @@ open class ChatCaptureService : AccessibilityService() {
 
         if (pkg.isNotEmpty() && pkg != activePkg) { activePkg = pkg; lastSignature = "" }
         currentSnapshot = snapshot
+        overlay?.setApp(pkg.ifEmpty { null })
         val sig = snapshot.signature()
         // Manual taps always re-run; the automatic path dedupes like the tree path.
         if (!manual && sig == lastSignature) {
             if (overlay?.isShowing() != true) overlay?.showIdle(snapshot.title)
             return
         }
-        // Same rule as the tree path: past this point the conversation is either
-        // new or being force-refreshed, so drop whatever was shown before.
-        cancelAnalysis()
         lastSignature = sig
-
-        val auto = prefs.ocrAutoAnalyze && prefs.autoAnalyze && snapshot.latestFrom == "other"
+        // Same rule as the tree path: only a first look or a new incoming message
+        // starts an automatic round; scrolling keeps the card as it is.
+        val verdict = gate.observe(snapshot.messages)
+        val fresh = verdict == NewMessageGate.Verdict.FIRST_LOOK || verdict == NewMessageGate.Verdict.NEW_FROM_OTHER
+        val auto = fresh && prefs.ocrAutoAnalyze && prefs.autoAnalyze && snapshot.latestFrom == "other"
         if (manual || auto) {
+            cancelInFlight()
             pendingSnapshot = snapshot
             main.removeCallbacks(debounce)
             runAnalysis()
@@ -818,9 +909,13 @@ open class ChatCaptureService : AccessibilityService() {
          *  connect/read per attempt but NOT DNS resolution, so a wedged lookup
          *  could hold a round's callback forever (panel stuck on 生成中, every
          *  later round silently dropped). Deliberately shorter than HttpJson's
-         *  own worst retry tail (~165s): a reply that takes >2min is worthless
-         *  anyway — better a clear timeout the user can retry from. */
-        private const val ROUND_TIMEOUT_MS = 120_000L
+         *  own worst retry tail (~165s). 30s each: past that the user would rather
+         *  see "生成超时" with a retry than keep waiting. */
+        private const val JUDGE_TIMEOUT_MS = 30_000L
+        private const val REPLY_TIMEOUT_MS = 30_000L
+
+        /** Grace period before a "not a chat" read really leaves the conversation. */
+        private const val LEAVE_CONFIRM_MS = 1200L
 
         /** Apps that are never read: they protect their content against screen
          *  reading or screenshots, so any capture attempt there is off-limits.
