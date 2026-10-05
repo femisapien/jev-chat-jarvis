@@ -13,7 +13,7 @@ internal class ConversationSession {
          * read receipts and timestamp ticks change [messagesSignature] between two
          * extractions of the SAME chat; treating that as "left the conversation"
          * invalidated in-flight analyses the instant their result came back, so
-         * candidates flashed and the overlay hid itself (seen on Soul and QQ
+         * candidates flashed and the overlay hid itself (seen on QQ
          * alike). Content changes are handled by the snapshot-signature path in
          * the capture service, which re-runs analysis for genuinely new messages.
          */

@@ -76,7 +76,7 @@ open class ChatCaptureService : AccessibilityService() {
 
     /** Adapted chat apps, keyed by package name. Apps in [BLOCKED_PKGS] are
      *  never read at all (see [maybeCapture] / [onAccessibilityEvent]). */
-    private val adapters = listOf(QQAdapter(), XAdapter(), FeishuAdapter(), SoulAdapter()).associateBy { it.pkg }
+    private val adapters = listOf(QQAdapter(), XAdapter(), FeishuAdapter()).associateBy { it.pkg }
 
     /** Submit to the worker, ignoring rejection after the service is torn down
      *  (a stale overlay callback must never crash the process). */
@@ -162,7 +162,7 @@ open class ChatCaptureService : AccessibilityService() {
         val live = rootInActiveWindow?.let { targetFor(it) }
         // A null re-extract is a transient accessibility glitch (list animation,
         // node cache miss), NOT proof the chat was left — hiding there killed
-        // freshly rendered candidates on Soul and QQ. Identity checks apply
+        // freshly rendered candidates (seen on QQ). Identity checks apply
         // only when we actually got a reading.
         if (live != null && (!live.sameConversation(token.target) ||
             !prefs.isAllowed(currentSnapshot?.title ?: live.title))) {
@@ -824,7 +824,7 @@ open class ChatCaptureService : AccessibilityService() {
         /** Apps that are never read: they protect their content against screen
          *  reading or screenshots, so any capture attempt there is off-limits.
          *  No adapter, no capture, only a one-time "not supported" notice. */
-        private val BLOCKED_PKGS = setOf("com.tencent.mm")
+        private val BLOCKED_PKGS = setOf("com.tencent.mm", "cn.soulapp.android")
 
         /** Shown once per visit to a blocked app. Plain words, full-width
          *  punctuation; steers the user to a supported app. */
