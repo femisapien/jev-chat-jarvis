@@ -95,6 +95,10 @@ class QQAdapter : ChatAppAdapter {
         // top, left, right, text
         val bubbles = ArrayList<Bubble>()
         var firstBubbleTop = Int.MAX_VALUE
+        // Top of the first message row, nickname included: the title fallback must
+        // stay above it, or a group member's nickname right under the top bar gets
+        // taken for the chat title while QQ re-lays out its list during a scroll.
+        var firstContentTop = Int.MAX_VALUE
         var title: String? = null
         var hasInput = false
 
@@ -111,13 +115,17 @@ class QQAdapter : ChatAppAdapter {
                 bubbles.add(Bubble(b.top, b.left, b.right, text))
                 if (b.top < firstBubbleTop) firstBubbleTop = b.top
             }
+            if (id == NICK_ID) {
+                val b = Rect(); node.getBoundsInScreen(b)
+                if (b.top < firstContentTop) firstContentTop = b.top
+            }
             if (!hasInput && id == INPUT_ID) hasInput = true
             if (id == TITLE_ID && title == null) text?.let { if (it.isNotBlank()) title = it }
             for (i in node.childCount - 1 downTo 0) node.getChild(i)?.let { stack.addLast(it) }
         }
         if (bubbles.isEmpty() && !hasInput) return null
 
-        if (title == null) title = findTitleInActionBar(root, firstBubbleTop, width, res)
+        if (title == null) title = findTitleInActionBar(root, minOf(firstBubbleTop, firstContentTop), width, res)
         if (bubbles.isEmpty()) return ChatSnapshot(title, emptyList())
 
         val avatarEdge = (width * 0.13).toInt()
@@ -135,6 +143,7 @@ class QQAdapter : ChatAppAdapter {
     companion object {
         private const val BUBBLE_ID = "com.tencent.mobileqq:id/mjn"
         private const val TITLE_ID = "com.tencent.mobileqq:id/371"
+        private const val NICK_ID = "com.tencent.mobileqq:id/mjq"
         private const val INPUT_ID = "com.tencent.mobileqq:id/input"
     }
 }

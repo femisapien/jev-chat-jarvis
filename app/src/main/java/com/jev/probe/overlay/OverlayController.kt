@@ -311,6 +311,10 @@ class OverlayController(private val ctx: Context) {
         noteText = null
         replyError = null
         contentBox?.removeAllViews()
+        // A cleared panel must never stay open and blank (seen on QQ while
+        // scrolling a group chat): fold it back to the bubble. The next
+        // showLoading / result opens it again.
+        if (expanded) toggle()
     }
 
     private fun bigButton(label: String, onClick: () -> Unit) = TextView(ctx).apply {
