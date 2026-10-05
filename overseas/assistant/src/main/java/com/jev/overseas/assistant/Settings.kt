@@ -61,9 +61,9 @@ class Settings(context: Context) {
         get() = prefs.getString(SPELLING, null) ?: "AUTO"
         set(value) = prefs.edit().putString(SPELLING, value).apply()
 
-    /** Local diagnostic log for bug reports (on while the app is in development). */
+    /** Local diagnostic log for bug reports. Off by default; the user turns it on in Settings. */
     var keepDiagnostics: Boolean
-        get() = prefs.getBoolean(DIAGNOSTICS, true)
+        get() = prefs.getBoolean(DIAGNOSTICS, false)
         set(value) = prefs.edit().putBoolean(DIAGNOSTICS, value).apply()
 
     var analyseWhenOpened: Boolean

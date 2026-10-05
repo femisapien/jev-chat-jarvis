@@ -51,8 +51,8 @@ In the app's private storage, excluded from cloud backup and device transfer:
   of the chat with a random per-install salt. Not the contact's name.
 - A diagnostic log of the latest 1000 events: ids, counts, scores, timings and error
   kinds. Never message text, names, replies, the goal you typed, the key or the
-  chat hash. See [docs/DIAGNOSTICS.md](docs/DIAGNOSTICS.md). You can turn it off or
-  clear it in Settings.
+  chat hash. See [docs/DIAGNOSTICS.md](docs/DIAGNOSTICS.md). It is off by default;
+  you can turn it on, off or clear it in Settings.
 
 The chat text and the drafted replies are kept in memory for the current round
 only (at most 15 minutes) and are not written to storage.

@@ -19,7 +19,7 @@
 
 | Android |
 | :---: |
-| [下载 APK（v0.1.0）](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/overseas/apk/jev-whatsapp-v0.1.0-release.apk) |
+| [下载 APK（v0.1.0）](https://github.com/jev-chat/jev-chat-jarvis/releases/tag/whatsapp-v0.1.0) |
 | Android 11+ · 不限 CPU 架构 · 10.6 MB · 英文聊天 |
 
 这是 Jev 的英文版，只支持 WhatsApp。它和仓库根目录的中文版 [Jev 聊天助手](../README.md)（QQ、X、飞书）是两个独立的 App：包名不同（`com.jev.overseas`），引擎和构建也各自独立，可以同时装在一台手机上。
@@ -82,7 +82,7 @@ Jev App
 - **只有干净的回复才能当 Top pick。** 替你答应了没让它答应的事、做了超出你意愿的决定、或者漏了你填的细节，这样的回复会被拦下或标成「Check 1 thing」，分数再高也一样。
 - **它知道你在跟谁说话。** 五个场景（Work、Romance、Friends、Family、General），每个场景下有不同的关系。回老板和回好朋友的标准不一样，要不要道歉也不一样。
 - **发送权在你手里。** Jev 把回复写进 WhatsApp 的输入框就停手，从不点发送，也不按回车。
-- **不动 WhatsApp。** 不需要 root，不 hook，不改安装包，不用 WhatsApp 的接口或账号，不读数据库。只在你点悬浮球时，通过 Android 无障碍服务读屏幕上的内容。
+- **不修改 WhatsApp。** 不需要 root，不 hook，不改安装包，不用 WhatsApp 的接口或账号，不读数据库。只在你点悬浮球时，通过 Android 无障碍服务读屏幕上的内容，为了读到更早的消息会上下滚动聊天记录；只有你点「填入」时才往输入框写字。
 - **用你自己的 key，没有我们的服务器。** 请求用你自己的 key 发到 OpenRouter。没有任何统计分析，也不会把内容发给作者。
 
 ## 支持范围
@@ -100,10 +100,10 @@ Jev 只读你自己手机上、你自己能看到的聊天。
 
 ## 快速开始
 
-**1. 安装。** 下载签好名的 release 包：[jev-whatsapp-v0.1.0-release.apk](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/overseas/apk/jev-whatsapp-v0.1.0-release.apk)（Android 11+）。也可以用 adb：
+**1. 安装。** 下载签好名的 release 包：[jev-whatsapp-v0.1.0-release.apk](https://github.com/jev-chat/jev-chat-jarvis/releases/tag/whatsapp-v0.1.0)（Android 11+）。也可以用 adb：
 
 ```bash
-adb install -r overseas/apk/jev-whatsapp-v0.1.0-release.apk
+adb install -r jev-whatsapp-v0.1.0-release.apk
 ```
 
 **2. 填 key。** 打开 Jev App，粘贴一个 [OpenRouter API key](https://openrouter.ai/keys)，点「Test connection」测一下。默认的 Jev 模型是 `typesafe/jev-1.13`，起草模型是 `deepseek/deepseek-chat-v3.1`，都可以在 Models 里改。
@@ -165,7 +165,7 @@ adb install -r overseas/apk/jev-whatsapp-v0.1.0-release.apk
 <details>
 <summary><b>需要 root 吗？会不会封号？</b></summary>
 
-不需要 root，也不用装任何模块。Jev 不修改 WhatsApp、不注入进程、不用它的接口或你的账号、不读它的数据库，只通过 Android 无障碍服务读屏幕上显示的内容，和读屏软件一样。至于任何自动化工具是否被允许，以 WhatsApp 的服务条款为准，请自行判断。
+不需要 root，也不用装任何模块。Jev 不修改 WhatsApp、不注入进程、不用它的接口或你的账号、不读它的数据库，只通过 Android 无障碍服务读屏幕上显示的内容。使用 Jev 可能不符合 WhatsApp 的服务条款，账号有被限制或封禁的风险，请自行判断是否使用。
 
 </details>
 

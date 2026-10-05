@@ -21,7 +21,7 @@
 
 | Android | WhatsApp（英文） | Windows | macOS |
 | :---: | :---: | :---: | :---: |
-| [获取 Android 版 APK](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/apk/jev-assistant-v1.4-release.apk) | [获取 WhatsApp 英文版 APK](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/overseas/apk/jev-whatsapp-v0.1.0-release.apk) | [获取 Windows 版](https://github.com/jev-chat/jev-chat-windows/releases) | [获取 macOS 版](https://github.com/jev-chat/jev-chat-jarvis-mac/releases) |
+| [获取 Android 版 APK](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/apk/jev-assistant-v1.4-release.apk) | [获取 WhatsApp 英文版 APK](https://github.com/jev-chat/jev-chat-jarvis/releases/tag/whatsapp-v0.1.0) | [获取 Windows 版](https://github.com/jev-chat/jev-chat-windows/releases) | [获取 macOS 版](https://github.com/jev-chat/jev-chat-jarvis-mac/releases) |
 | Android 11+ · ARM64 · [历史版本](https://github.com/jev-chat/jev-chat-jarvis/releases) | Android 11+ · 一对一英文聊天 · [说明](overseas/README.zh-CN.md) | Windows 10 1903+ / 11 | macOS 13+ · Apple Silicon |
 
 如果项目对你有帮助，欢迎点击本仓库右上角的 **Star**，支持后续维护。获取和使用无需先加星或关注。

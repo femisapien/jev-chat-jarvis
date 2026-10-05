@@ -19,7 +19,7 @@
 
 | Android |
 | :---: |
-| [Download the APK (v0.1.0)](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/overseas/apk/jev-whatsapp-v0.1.0-release.apk) |
+| [Download the APK (v0.1.0)](https://github.com/jev-chat/jev-chat-jarvis/releases/tag/whatsapp-v0.1.0) |
 | Android 11+ · any CPU · 10.6 MB · English chats |
 
 This is the English, WhatsApp-only edition of Jev. It is a separate app from the
@@ -95,9 +95,10 @@ Jev app
   friend are judged differently, including whether to apologise.
 - **Sending stays with you.** Jev writes into WhatsApp's message box and stops. It
   never presses send or enter.
-- **It does not touch WhatsApp.** No root, no hooks, no modified APK, no WhatsApp
-  account or API, no database. It reads the screen through Android's accessibility
-  service, only when you tap the bubble.
+- **It does not modify WhatsApp.** No root, no hooks, no modified APK, no WhatsApp
+  account or API, no database. Only when you tap the bubble, it reads the screen
+  through Android's accessibility service and may scroll the chat to read earlier
+  messages. It writes into the message box only when you tap Fill.
 - **Your key, your models, no server of ours.** Requests go to OpenRouter with your
   own key. There is no analytics and nothing is sent to the authors.
 
@@ -117,11 +118,11 @@ Jev only reads chats on your own device that you can see yourself.
 ## Quick start
 
 **1. Install.** Download the signed release APK:
-[jev-whatsapp-v0.1.0-release.apk](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/overseas/apk/jev-whatsapp-v0.1.0-release.apk)
+[jev-whatsapp-v0.1.0-release.apk](https://github.com/jev-chat/jev-chat-jarvis/releases/tag/whatsapp-v0.1.0)
 (Android 11+). Or with adb:
 
 ```bash
-adb install -r overseas/apk/jev-whatsapp-v0.1.0-release.apk
+adb install -r jev-whatsapp-v0.1.0-release.apk
 ```
 
 **2. Add your key.** Open the Jev app, paste an [OpenRouter API key](https://openrouter.ai/keys)
@@ -211,8 +212,8 @@ that presses the send button or the keyboard's enter key. You decide whether to 
 
 No root and no modules. Jev does not modify WhatsApp, inject into it, use its API or
 your account, or read its database. It reads what is on screen through Android's
-accessibility service, the way a screen reader does. Whether any use of automation
-is acceptable is decided by WhatsApp's terms; use Jev at your own judgement.
+accessibility service. Using Jev may not comply with WhatsApp's terms of service,
+and your account could be restricted or banned. Decide for yourself whether to use it.
 
 </details>
 

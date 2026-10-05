@@ -18,7 +18,7 @@
 
 </div>
 
-> **Chatting in English on WhatsApp?** [Jev for WhatsApp](overseas/README.md) is a separate Android app for one-to-one WhatsApp chats in English: it works out what they want, drafts two replies, checks and scores them, and fills the one you pick. [Download the APK](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/overseas/apk/jev-whatsapp-v0.1.0-release.apk).
+> **Chatting in English on WhatsApp?** [Jev for WhatsApp](overseas/README.md) is a separate Android app for one-to-one WhatsApp chats in English: it works out what they want, drafts two replies, checks and scores them, and fills the one you pick. [Download the APK](https://github.com/jev-chat/jev-chat-jarvis/releases/tag/whatsapp-v0.1.0).
 
 ## Sponsors
 
