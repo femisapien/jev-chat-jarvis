@@ -14,22 +14,36 @@ import org.json.JSONObject
 class ReplyClient(private val prefs: Prefs) {
 
     /**
-     * Exactly 3 varied candidate replies in Chinese.
+     * [count] varied candidate replies (1..3), in the language of the other
+     * person's latest message (English chats get English replies). [avoid] holds
+     * replies already shown for this chat ("换一组"), which the model must not repeat.
      *
      * @param ctx D-stage knowledge context. When present its background and
      *        history are prepended to the prompt with an instruction to stay
      *        consistent with them and invent nothing beyond them.
      */
-    fun draft(snapshot: ChatSnapshot, relationship: String, ctx: ChatContext? = null): List<String> {
+    fun draft(
+        snapshot: ChatSnapshot,
+        relationship: String,
+        ctx: ChatContext? = null,
+        count: Int = 3,
+        avoid: List<String> = emptyList()
+    ): List<String> {
+        val n = count.coerceIn(1, 3)
         val convo = snapshot.messages.takeLast(10).joinToString("\n") {
             (if (it.side == "me") "我" else "对方") + "：" + it.text
         }
-        val sys = "你是中文即时通讯回复助手。只输出一个 JSON 数组，含且仅含 3 条候选回复文本，" +
-            "三条策略要有区别（例如：一条稳妥承接、一条给具体行动或承诺、一条简短低姿态）。" +
-            "每条不超过 40 字，口语、自然、像真人在聊天软件里发消息。不要解释，不要加引号以外的内容，直接输出 JSON 数组。"
+        val sys = "你是即时通讯回复助手。只输出一个 JSON 数组，含且仅含 $n 条候选回复文本，" +
+            (if (n > 1) "各条策略要有区别（例如：一条稳妥承接、一条给具体行动或承诺、一条简短低姿态）。"
+             else "给出最稳妥、最自然的一条。") +
+            "回复语言跟随对方最近一条消息：对方用英文就用自然的英文回复，用中文就用中文回复。" +
+            "每条不超过 40 字（英文不超过 30 个单词），口语、自然、像真人在聊天软件里发消息。不要解释，不要加引号以外的内容，直接输出 JSON 数组。"
         val user = knowledgeBlock(relationship, ctx) +
-            "关系：$relationship\n\n最近对话：\n$convo\n\n请给出 3 条候选回复。"
-        return parseThree(chat(sys, user, temperature = 0.8))
+            "关系：$relationship\n\n最近对话：\n$convo\n\n" +
+            (if (avoid.isEmpty()) "" else
+                "下面这些回复已经给过，不要重复，也不要只是换个说法：\n" + avoid.joinToString("\n") { "- $it" } + "\n\n") +
+            "请给出 $n 条候选回复。"
+        return parseN(chat(sys, user, temperature = if (avoid.isEmpty()) 0.8 else 0.95), n)
     }
 
     /** The background + history preamble; empty string when there is no context. */
@@ -78,29 +92,27 @@ class ReplyClient(private val prefs: Prefs) {
             .put("model", prefs.replyModel)
             .put("messages", messages)
             .put("temperature", temperature)
+            .put("stream", false)
         val resp = HttpJson.post(url, prefs.effectiveReplyKey(), body, Route.REPLY, HttpJson.headersFor(url))
         return resp.optJSONArray("choices")?.optJSONObject(0)
             ?.optJSONObject("message")?.optString("content") ?: ""
     }
 
-    private fun parseThree(content: String): List<String> {
+    /** Up to [n] non-blank replies; fewer when the model gave fewer (never padded with filler). */
+    private fun parseN(content: String, n: Int): List<String> {
         val start = content.indexOf('[')
         val end = content.lastIndexOf(']')
         if (start >= 0 && end > start) {
             try {
                 val arr = JSONArray(content.substring(start, end + 1))
                 val out = ArrayList<String>()
-                for (i in 0 until arr.length()) out.add(arr.getString(i).trim())
-                if (out.size >= 3) return out.take(3)
-                while (out.size < 3) out.add("（稍等，我看下）")
-                return out
+                for (i in 0 until arr.length()) arr.optString(i).trim().takeIf { it.isNotEmpty() }?.let { out.add(it) }
+                if (out.isNotEmpty()) return out.take(n)
             } catch (_: Exception) { }
         }
         // Fallback: split lines.
-        val lines = content.split("\n").map { it.trim().trimStart('-', '*', '1', '2', '3', '.', ' ', '"') }
-            .filter { it.isNotBlank() }
-        val out = lines.take(3).toMutableList()
-        while (out.size < 3) out.add("（稍等，我看下）")
-        return out
+        return content.split("\n").map { it.trim().trimStart('-', '*', '1', '2', '3', '.', ' ', '"').trimEnd('"', ',') }
+            .filter { it.isNotBlank() && it != "[" && it != "]" }
+            .take(n)
     }
 }

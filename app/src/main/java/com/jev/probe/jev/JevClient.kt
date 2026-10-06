@@ -20,13 +20,20 @@ class JevClient(prefs: Prefs) {
     fun judge(snapshot: ChatSnapshot, relationship: String, ctx: ChatContext? = null): Analysis =
         judgeClient.judge(snapshot, relationship, ctx)
 
-    /** Draft 3 candidates on the reply route, then rank them on the judge route. */
+    /**
+     * Draft [count] candidates on the reply route, then rank them on the judge
+     * route. A single candidate has nothing to rank, so that round is skipped.
+     * [avoid] = replies already shown for this chat (the "换一组" request).
+     */
     fun draftAndRank(
         snapshot: ChatSnapshot,
         relationship: String,
-        ctx: ChatContext? = null
+        ctx: ChatContext? = null,
+        count: Int = 3,
+        avoid: List<String> = emptyList()
     ): List<RankedReply> {
-        val candidates = replyClient.draft(snapshot, relationship, ctx)
+        val candidates = replyClient.draft(snapshot, relationship, ctx, count, avoid)
+        if (candidates.size <= 1) return candidates.map { RankedReply(it, 1.0) }
         return judgeClient.rank(snapshot, relationship, candidates, ctx)
     }
 

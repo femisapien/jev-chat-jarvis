@@ -8,7 +8,7 @@
 
 [![Stars](https://img.shields.io/github/stars/jev-chat/jev-chat-jarvis?style=flat-square&logo=github&label=Stars)](https://github.com/jev-chat/jev-chat-jarvis/stargazers)
 [![Forks](https://img.shields.io/github/forks/jev-chat/jev-chat-jarvis?style=flat-square&logo=github&label=Forks)](https://github.com/jev-chat/jev-chat-jarvis/forks)
-[![Version](https://img.shields.io/badge/%E7%89%88%E6%9C%AC-v1.4-1f6feb?style=flat-square)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/%E7%89%88%E6%9C%AC-v1.7-1f6feb?style=flat-square)](CHANGELOG.md)
 [![License](https://img.shields.io/github/license/jev-chat/jev-chat-jarvis?style=flat-square)](LICENSE)
 
 [官网](https://chatjevs.com) · [安装与设置指南](https://chatjevs.com/guides/android-setup.html) · [候选回复使用建议](https://chatjevs.com/guides/review-ai-replies.html) · [隐私政策](PRIVACY.md) · [更新日志](CHANGELOG.md)
@@ -21,7 +21,7 @@
 
 | Android | WhatsApp（英文） | Windows | macOS |
 | :---: | :---: | :---: | :---: |
-| [获取 Android 版 APK](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/apk/jev-assistant-v1.4-release.apk) | [获取 WhatsApp 英文版 APK](https://github.com/jev-chat/jev-chat-jarvis/releases/tag/whatsapp-v0.1.0) | [获取 Windows 版](https://github.com/jev-chat/jev-chat-windows/releases) | [获取 macOS 版](https://github.com/jev-chat/jev-chat-jarvis-mac/releases) |
+| [获取 Android 版 APK](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/apk/jev-assistant-v1.7-release.apk) | [获取 WhatsApp 英文版 APK](https://github.com/jev-chat/jev-chat-jarvis/releases/tag/whatsapp-v0.1.0) | [获取 Windows 版](https://github.com/jev-chat/jev-chat-windows/releases) | [获取 macOS 版](https://github.com/jev-chat/jev-chat-jarvis-mac/releases) |
 | Android 11+ · ARM64 · [历史版本](https://github.com/jev-chat/jev-chat-jarvis/releases) | Android 11+ · 一对一英文聊天 · [说明](overseas/README.zh-CN.md) | Windows 10 1903+ / 11 | macOS 13+ · Apple Silicon |
 
 如果项目对你有帮助，欢迎点击本仓库右上角的 **Star**，支持后续维护。获取和使用无需先加星或关注。
@@ -66,7 +66,7 @@
 - **它先判断，再写字。** 大多数工具直接让模型编一句回复。Jev 先用判断模型给出对方真实意图、危险等级、该不该马上回，再据此起草回复。
 - **不动你的聊天软件。** 不 hook、不改包、不走任何 App 的接口或账号、不读数据库，只用系统无障碍服务读「屏幕上正在显示的对话」。
 - **发送权永远在你手里。** 程序只把回复填进输入框，从不自动发送，不碰转账 / 红包 / 收款。
-- **一套内核，多平台。** QQ、X 真机跑通，飞书靠 OCR 补正文。新增一个 App 只需写一个几十行的适配器；微信 Android 版已全面下架，不再采集或处理微信内容。
+- **一套内核，多平台。** QQ、X 真机跑通，飞书靠 OCR 补正文，WhatsApp 按录屏数据验证。新增一个 App 只需写一个几十行的适配器。
 - **它认识你的人和事。** 本地知识库与联系人档案，分析时自动带上命中的笔记和这个人的历史，回复不会和你的设定打架。
 - **接口自己配。** 判断 / 回复 / 视觉三路分别可填。分析时，聊天文字和你启用的背景信息会发给你配置的模型服务商；作者不运营中转服务器。
 - **本机存储可控。** 密钥、知识库和可选历史存 App 私有空间；截图只在本机 OCR，不上传。第三方服务商如何处理收到的内容，以其隐私政策为准。
@@ -78,19 +78,22 @@
 | QQ Android | ✅ 全链路 | 无障碍读节点 | 9.3.50 实测（群聊）；1v1 按同结构推断 |
 | X / Twitter 私信 | ✅ 全链路 | 解析 Compose 节点的 content-desc | 12.25 实测，中文界面；英文界面未验 |
 | 飞书 / Lark | ✅ OCR 兜底（真机验证） | 无障碍读气泡矩形 + ML Kit 离线 OCR 识别正文 | 正文自绘不在无障碍树里，1.3 起对每个气泡矩形做 OCR；我/对方按已读状态判 |
-| 其它未适配 App（微信除外） | ✅ 手动 | 悬浮窗菜单「截屏识别一次」整屏 OCR | 不自动、不分我/对方（全部当作对方所说并在面板标注）；微信 Android 版已全面下架 |
-| WhatsApp（英文，独立 App） | 🧪 v0.1 | 无障碍读节点 | 独立的英文版，单独构建，与本 App 不共用代码；只支持一对一英文聊天，2.26.38.73 实测，有签好名的 APK。见 [overseas/](overseas/README.zh-CN.md) |
+| WhatsApp | 🧪 一对一聊天 | 无障碍读节点 | 只读一对一聊天，群聊不读，不截屏；对方说英文时候选回复用英文；读取规则来自 [@smgonthebeat](https://github.com/smgonthebeat)（#73），按 WhatsApp 2.26.38.73 录屏数据验证 |
+| WhatsApp 英文完整版（独立 App） | 🧪 v0.1 | 无障碍读节点，往上翻页读最近 24 条并拼接 | 单独的英文 App（`overseas/`），独立构建、不与本 App 共用代码：英文界面，按场景和关系判断，两条草稿逐条检查并打分；只支持一对一英文聊天，2.26.38.73 实测。见 [overseas/](overseas/README.zh-CN.md) |
+| 其它未适配 App | ✅ 手动 | 悬浮窗菜单「截屏识别一次」整屏 OCR | 不自动、不分我/对方（全部当作对方所说并在面板标注）；隐藏界面内容或禁止截屏的 App 不支持 |
 | macOS / Windows（独立项目） | ✅ 已提供 | 见各自仓库说明 | [macOS 版](https://github.com/jev-chat/jev-chat-jarvis-mac) · [Windows 版](https://github.com/jev-chat/jev-chat-windows) |
 | 网页 | ⏳ 规划 | — | 尚无网页版 |
 
-本项目只读你自己设备上、你自己有权查看且当前版本支持的聊天；微信 Android 版已全面下架，不提供微信采集与分析。
+本项目只读你自己设备上、你自己有权查看且当前版本支持的聊天；隐藏界面内容或禁止截屏的 App 一律不读。
+
+> **使用风险**：在 QQ、飞书、X、WhatsApp 等第三方 App 里使用本助手，可能不符合该 App 的用户协议，账号有被限制或封禁的风险，请自行判断是否使用。
 
 ## 快速开始
 
-**1. 装包。** 仓库里有签好名的 release 包：[下载 Jev Android v1.4 APK](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/apk/jev-assistant-v1.4-release.apk)（Android 11+，仅支持 ARM64 / `arm64-v8a`）。[Releases](https://github.com/jev-chat/jev-chat-jarvis/releases)可查看历史版本的发布说明。
+**1. 装包。** 仓库里有签好名的 release 包：[下载 Jev Android v1.7 APK](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/apk/jev-assistant-v1.7-release.apk)（Android 11+，仅支持 ARM64 / `arm64-v8a`）。[Releases](https://github.com/jev-chat/jev-chat-jarvis/releases)可查看历史版本的发布说明。
 
 ```bash
-adb install -r apk/jev-assistant-v1.4-release.apk
+adb install -r apk/jev-assistant-v1.7-release.apk
 ```
 
 **2. 填密钥。** 打开 App → 设置 →「接口」分三张卡：判断接口 / 回复接口 / 视觉接口。最简单只填「判断接口」一栏的 [OpenRouter](https://openrouter.ai/) API Key，其余两栏留空会自动继承这把密钥就能用。想换回复模型（默认 `deepseek/deepseek-chat-v3.1`，国内 Gemini / OpenAI 会被区域限制）就在「回复接口」选预设（OpenRouter / DeepSeek 官方 / 通义兼容）或自填地址，每张卡都有独立的一键连通测试。
@@ -136,7 +139,7 @@ adb install -r apk/jev-assistant-v1.4-release.apk
 - 一个 App 一个适配器，服务按前台包名分发，适配器只负责把当前窗口变成「标题 + 消息列表」。
 - 无障碍树里没有正文时，对支持的聊天 App 自动截屏并用 ML Kit 中文离线模型识别，不上传图片、不需要 Google 服务。
 - 截屏有限频和失败退避，不会每秒连拍；识别时会躲开自己的悬浮窗。
-- 未适配的 App（微信除外）可在悬浮窗菜单里手动触发「截屏识别一次」。
+- 未适配的 App 可在悬浮窗菜单里手动触发「截屏识别一次」。
 
 ## 常见问题
 
@@ -171,7 +174,7 @@ adb install -r apk/jev-assistant-v1.4-release.apk
 <details>
 <summary><b>飞书里读不到正文？其它 App 能用吗？</b></summary>
 
-飞书的消息正文是自绘控件，无障碍树里没有文字，1.3 起改为对每个气泡矩形做离线 OCR。其它未适配的 App（微信除外），可以在悬浮窗菜单里点「截屏识别一次」，整屏 OCR 后同样能分析，只是不区分我方和对方。
+飞书的消息正文是自绘控件，无障碍树里没有文字，1.3 起改为对每个气泡矩形做离线 OCR。其它未适配的 App，可以在悬浮窗菜单里点「截屏识别一次」，整屏 OCR 后同样能分析，只是不区分我方和对方。
 
 </details>
 
@@ -207,7 +210,7 @@ adb install -r apk/jev-assistant-v1.4-release.apk
 2. 在 `capture/ChatCaptureService.kt` 的 `adapters` 加一行。
 3. 判断、候选、悬浮窗、填入都不用动。
 
-先用 `adb shell uiautomator dump` 看目标 App 暴露了什么，已有三个专用适配器，另有未适配 App 的手动 OCR 入口（微信 Android 版已全面下架）：
+先用 `adb shell uiautomator dump` 看目标 App 暴露了什么，已有四个专用适配器，另有未适配 App 的手动 OCR 入口：
 
 | App | 树的情况 | 适配器怎么做 |
 |---|---|---|
@@ -253,7 +256,7 @@ JDK 17 + Android SDK（platform 35 / build-tools 35）。
 - **OCR 依赖系统放行截屏**：无障碍服务要被系统允许截屏才能用，小米 / HyperOS 可能拒绝（面板会提示失败原因）；受保护窗口（`FLAG_SECURE`）截不到。
 - **OCR 只认屏幕上看得见的部分**：长消息被截断的部分读不到；识别有错字。
 - **包体变大**：ML Kit 中文离线模型让 APK 从约 12 MB 增至约 27 MB，且只打 arm64-v8a。
-- **微信 Android 版已全面下架**：当前版本不再采集、OCR、分析或填入微信内容。
+- **不支持隐藏界面内容或禁止截屏的 App**：这类 App 里不读取、不截屏、不填入。
 
 ## 交流群 / 需求收集
 
@@ -307,5 +310,5 @@ Copyright © 2026 Finderchangchang 与 jev-chat 贡献者。代码以 [MIT](LICE
 - **必须注明出处**：分发或商用时保留 LICENSE 与 NOTICE，并在产品「关于」页、说明文档或发布页写明来源。推荐写法：`基于 Jev 聊天助手（https://github.com/jev-chat/jev-chat-jarvis）二次开发`。
 - 不要用「Jev 聊天助手」「jev-chat」名称或 chatjevs.com 域名暗示由原作者出品或背书。
 
-**隐私与免责声明**：触发分析时，聊天文字和启用的背景信息会发送到你自行配置的第三方模型服务商；截图仅在本机 OCR。请阅读[隐私政策](PRIVACY.md)以及所选服务商的政策，并遵守 QQ、X、飞书等软件的许可协议与当地法律法规。作者不对第三方服务商的数据处理行为或使用后果负责。
+**隐私与免责声明**：触发分析时，聊天文字和启用的背景信息会发送到你自行配置的第三方模型服务商；截图仅在本机 OCR。请阅读[隐私政策](PRIVACY.md)以及所选服务商的政策，并遵守 QQ、X、飞书、WhatsApp 等软件的用户协议与当地法律法规；因违反第三方 App 用户协议导致的账号限制等后果由使用者自行承担。作者不对第三方服务商的数据处理行为或使用后果负责。
 

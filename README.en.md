@@ -8,11 +8,11 @@
 
 [![Stars](https://img.shields.io/github/stars/jev-chat/jev-chat-jarvis?style=flat-square&logo=github&label=Stars)](https://github.com/jev-chat/jev-chat-jarvis/stargazers)
 [![Forks](https://img.shields.io/github/forks/jev-chat/jev-chat-jarvis?style=flat-square&logo=github&label=Forks)](https://github.com/jev-chat/jev-chat-jarvis/forks)
-[![Version](https://img.shields.io/badge/Version-v1.4-1f6feb?style=flat-square)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/Version-v1.7-1f6feb?style=flat-square)](CHANGELOG.md)
 [![Android](https://img.shields.io/badge/Android-11%2B-3DDC84?style=flat-square&logo=android&logoColor=white)](#quick-start)
 [![License](https://img.shields.io/github/license/jev-chat/jev-chat-jarvis?style=flat-square)](LICENSE)
 
-[Website](https://chatjevs.com) · [Download APK](apk/jev-assistant-v1.4-release.apk) · [Releases](https://github.com/jev-chat/jev-chat-jarvis/releases) · [Changelog](CHANGELOG.md) · [macOS](https://github.com/jev-chat/jev-chat-mac) · [Windows](https://github.com/jev-chat/jev-chat-windows)
+[Website](https://chatjevs.com) · [Download APK](apk/jev-assistant-v1.7-release.apk) · [Releases](https://github.com/jev-chat/jev-chat-jarvis/releases) · [Changelog](CHANGELOG.md) · [macOS](https://github.com/jev-chat/jev-chat-mac) · [Windows](https://github.com/jev-chat/jev-chat-windows)
 
 [简体中文](README.md) · **English** · [Tiếng Việt](README.vi.md)
 
@@ -58,7 +58,7 @@
 - **It assesses the conversation before drafting a reply.** Most tools simply ask a model to write a response. Jev first uses an assessment model to identify the other person's intent, gauge the risk, and decide whether a reply can wait. That assessment guides its suggestions.
 - **It leaves your chat apps alone.** No hooking, modified app packages, access to app APIs or accounts, or database reads. Jev uses Android's accessibility service to read the conversation currently visible on your screen.
 - **You're always in control of sending.** Jev only fills in the text field. It never sends messages automatically or interacts with transfers, red packets, or payment collection.
-- **One core, multiple platforms.** Tested on real devices with QQ and X; Feishu uses OCR to read message text. Adding another app takes an adapter of just a few dozen lines.
+- **One core, multiple platforms.** Tested on real devices with QQ and X; Feishu uses OCR to read message text; WhatsApp is verified against screen recordings. Adding another app takes an adapter of just a few dozen lines.
 - **It has context about your contacts and your life.** A local knowledge base and contact profiles supply relevant notes and conversation history during analysis, keeping replies consistent with the background you've provided.
 - **Choose your own APIs.** Configure assessment, reply generation, and vision separately, using your own keys and API allowances. Requests go directly to your chosen providers.
 - **Local privacy controls.** API keys stay in the app's private storage. Chat content is sent to your configured APIs only during analysis and is neither saved to disk nor written to logs by default.
@@ -70,18 +70,21 @@
 | QQ for Android | Full workflow supported | Accessibility nodes | Tested with version 9.3.50 in group chats; one-to-one support is inferred from the same UI structure |
 | X / Twitter DMs | Full workflow supported | Parses `content-desc` on Compose nodes | Tested with version 12.25 in Chinese; the English UI has not been verified |
 | Feishu / Lark | OCR fallback verified on a real device | Reads message bubble bounds through accessibility, then extracts text with offline ML Kit OCR | Message text is custom-rendered and absent from the accessibility tree. Since v1.3, each bubble is processed with OCR; read status is used to identify the sender |
+| WhatsApp | One-to-one chats (beta) | Accessibility nodes | One-to-one chats only; group chats are not read and WhatsApp is never screenshotted; replies follow the language of the other person's latest message. Reading rules by [@smgonthebeat](https://github.com/smgonthebeat) (#73), verified against WhatsApp 2.26.38.73 recordings |
+| WhatsApp, full English edition (separate app) | v0.1 | Accessibility nodes; scrolls up to read the last 24 messages and stitches them | A separate English app (`overseas/`) with its own build and no shared code: English interface, analysis by scene and relationship, two drafts checked and scored one by one. One-to-one chats in English; tested on 2.26.38.73. See [Jev for WhatsApp](overseas/README.md) |
 | Any other app | Manual capture supported | Full-screen OCR via "Scan screen once" in the overlay menu | Manual only; all text is treated as coming from the other person, with a notice in the panel |
-| WhatsApp (English, separate app) | v0.1 | Accessibility nodes | One-to-one chats in English; tested on 2.26.38.73. See [Jev for WhatsApp](overseas/README.md) |
 | Desktop / web | Planned | Screenshots with OCR / vision | Same core, different capture method |
 
 Jev only reads conversations on your own device that you are authorized to view. It is not designed to target any particular platform.
 
+> **Use at your own risk:** Using Jev inside third-party apps such as QQ, Feishu, X, or WhatsApp may not comply with those apps' terms of service, and your account could be restricted or banned. Decide for yourself whether to use it.
+
 ## Quick Start
 
-**1. Install the app.** A signed release APK is included in the repository: [`apk/jev-assistant-v1.4-release.apk`](apk/jev-assistant-v1.4-release.apk). Requires Android 11 or later and an ARM64 (`arm64-v8a`) device. Downloads for other versions are available under [Releases](https://github.com/jev-chat/jev-chat-jarvis/releases).
+**1. Install the app.** A signed release APK is included in the repository: [`apk/jev-assistant-v1.7-release.apk`](apk/jev-assistant-v1.7-release.apk). Requires Android 11 or later and an ARM64 (`arm64-v8a`) device. Downloads for other versions are available under [Releases](https://github.com/jev-chat/jev-chat-jarvis/releases).
 
 ```bash
-adb install -r apk/jev-assistant-v1.4-release.apk
+adb install -r apk/jev-assistant-v1.7-release.apk
 ```
 
 **2. Add your API key.** Open the app, go to Settings, and find the API section. It has three cards: Assessment API, Reply API, and Vision API. For the simplest setup, enter an [OpenRouter](https://openrouter.ai/) API key under Assessment API and leave the other two blank; they will inherit the same key. To change the reply model (the default is `deepseek/deepseek-chat-v3.1`; Gemini and OpenAI are subject to regional restrictions in mainland China), choose a preset under Reply API, such as OpenRouter, DeepSeek, or Tongyi-compatible, or enter a custom URL. Each card has its own connection test.
@@ -309,4 +312,4 @@ Copyright © 2026 Finderchangchang and the jev-chat contributors. The code is av
 - **Attribution is required:** Keep LICENSE and NOTICE when distributing or using the project commercially, and credit the source in your product's About page, documentation, or release page. Suggested wording: `Based on Jev Chat Assistant (https://github.com/jev-chat/jev-chat-jarvis)`.
 - Do not use the names "Jev Chat Assistant" ("Jev 聊天助手") or "jev-chat", or the domain chatjevs.com, to imply that your product was made or endorsed by the original authors.
 
-**Disclaimer:** This project only processes conversations on your own device that you are authorized to view. Follow the license agreements of QQ, X, Feishu, and any other apps you use, as well as applicable local laws and regulations. The authors accept no responsibility for the consequences of its use.
+**Disclaimer:** This project only processes conversations on your own device that you are authorized to view. Follow the terms of service of QQ, X, Feishu, WhatsApp, and any other apps you use, as well as applicable local laws and regulations. The authors accept no responsibility for the consequences of its use.

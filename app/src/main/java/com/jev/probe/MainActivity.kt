@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var prefs: Prefs
     private lateinit var container: LinearLayout
     private val a11yComponent =
-        "com.jev.probe/com.google.android.accessibility.selecttospeak.SelectToSpeakService"
+        "com.jev.probe/com.jev.probe.capture.ChatCaptureService"
 
     private val accent = Color.parseColor("#3A7AFE")
     private val green = Color.parseColor("#16A34A")
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         container.removeAllViews()
 
         container.addView(text("Jev 聊天助手", 24f, ink, bold = true))
-        container.addView(text("在聊天 App 旁读对方消息（已支持 QQ、X、飞书），给出判断和候选回复。发送始终由你手动点。",
+        container.addView(text("在聊天 App 旁读对方消息（已支持 QQ、X、飞书、WhatsApp），给出判断和候选回复。发送始终由你手动点。",
             13f, sub).apply { setPadding(0, dp(6), 0, dp(16)) })
 
         val a11y = isA11yEnabled()
@@ -75,6 +75,7 @@ class MainActivity : AppCompatActivity() {
         // Readiness card
         container.addView(statusCard(ready, a11y, overlay, key))
         container.addView(privacyHint())
+        container.addView(platformRiskHint())
 
         // Permission checklist
         container.addView(sectionLabel("权限设置"))
@@ -132,6 +133,12 @@ class MainActivity : AppCompatActivity() {
         setPadding(dp(2), dp(8), 0, 0)
         setOnClickListener { openUrl(PRIVACY_URL) }
     }
+
+    /** One line under the privacy hint: using it inside third-party chat apps is at the user's own risk. */
+    private fun platformRiskHint(): View =
+        text("在第三方聊天 App 里使用可能不符合其用户协议，账号有被限制的风险，请自行判断", 11f, sub).apply {
+            setPadding(dp(2), dp(4), 0, 0)
+        }
 
     /** Opens an external link; swallows the failure with a toast rather than crashing. */
     private fun openUrl(url: String) {
