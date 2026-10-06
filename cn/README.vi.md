@@ -4,7 +4,7 @@
 
 # Jev 聊天助手 · Bản tiếng Trung (Android)
 
-[← Quay lại trang tổng quan](../README.vi.md) · [Tải APK v1.7](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/cn/apk/jev-assistant-v1.7-release.apk) · [Nhật ký thay đổi](CHANGELOG.md) · [Chính sách quyền riêng tư](PRIVACY.md)
+[← Quay lại trang tổng quan](../.github/README.vi.md) · [Tải APK v1.7](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/cn/apk/jev-assistant-v1.7-release.apk) · [Nhật ký thay đổi](CHANGELOG.md) · [Chính sách quyền riêng tư](PRIVACY.md)
 
 [简体中文](README.md) · [English](README.en.md) · **Tiếng Việt**
 
@@ -215,4 +215,4 @@ JDK 17 + Android SDK (platform 35 / build-tools 35).
 
 ---
 
-Nhà tài trợ, nhóm trao đổi, dự án liên quan và giấy phép: xem [trang tổng quan](../README.vi.md).
+Nhà tài trợ, nhóm trao đổi, dự án liên quan và giấy phép: xem [trang tổng quan](../.github/README.vi.md).
