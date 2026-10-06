@@ -45,7 +45,7 @@
 
 | 目录 | 归属 | 说明 |
 |---|---|---|
-| `app/`、`gradle/`、根 gradle 文件 | Android 构建方 | 安卓工程 |
+| `app/`、`gradle/`、gradle 文件 | Android 构建方 | 国内版安卓工程，在本目录（`cn/`）跑 `./gradlew` |
 | `tools/jev/` | Jev 判断方 | Python 题目集与校准脚手架，PC 上跑 |
 | `docs/` | 主控 | 验收标准、报告 |
 | `docs/v1.3-plan.md` | 主控 | v1.3 总方案与修订，**所有 worker 必读** |

@@ -31,7 +31,7 @@
 - 隐藏界面内容或禁止截屏的 App 不支持。
 - 界面目前只有中文，英文界面还在准备中。
 
-**下载**：[jev-assistant-v1.7-release.apk](https://github.com/jev-chat/jev-chat-jarvis/raw/main/apk/jev-assistant-v1.7-release.apk)
+**下载**：[jev-assistant-v1.7-release.apk](https://github.com/jev-chat/jev-chat-jarvis/raw/main/cn/apk/jev-assistant-v1.7-release.apk)
 
 ## v1.4 — 2026-09-23
 
