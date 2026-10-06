@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/images/logo.png" width="150" alt="Jev 聊天助手" />
+<img src=".github/assets/images/logo.png" width="150" alt="Jev 聊天助手" />
 
 # Jev 聊天助手
 
@@ -21,7 +21,7 @@
 
 | 国内版 · Android | 海外版 · Android | Windows | macOS |
 | :---: | :---: | :---: | :---: |
-| [下载 v1.7 APK](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/apk/jev-assistant-v1.7-release.apk) | 即将推出 | [获取 Windows 版](https://github.com/jev-chat/jev-chat-windows/releases) | [获取 macOS 版](https://github.com/jev-chat/jev-chat-jarvis-mac/releases) |
+| [下载 v1.7 APK](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/cn/apk/jev-assistant-v1.7-release.apk) | 即将推出 | [获取 Windows 版](https://github.com/jev-chat/jev-chat-windows/releases) | [获取 macOS 版](https://github.com/jev-chat/jev-chat-jarvis-mac/releases) |
 | 中文界面 · QQ / 飞书 / X / WhatsApp | 英文界面 · 先支持 WhatsApp | 聊天窗口旁的回复辅助 | 消息意图识别悬浮窗 |
 | Android 11+ · ARM64 · [使用说明](cn/README.md) | [@smgonthebeat](https://github.com/smgonthebeat) 主导开发 | Windows 10 1903+ / 11 · [说明](https://github.com/jev-chat/jev-chat-windows#使用说明) | macOS 13+ · Apple Silicon · [说明](https://github.com/jev-chat/jev-chat-jarvis-mac#用法) |
 
@@ -43,15 +43,15 @@
 
 <table>
 <tr>
-<td width="240" align="center"><a href="https://open.bocha.cn"><img src="assets/images/sponsors/bocha.png" alt="博查" width="200"></a></td>
+<td width="240" align="center"><a href="https://open.bocha.cn"><img src=".github/assets/images/sponsors/bocha.png" alt="博查" width="200"></a></td>
 <td>感谢 <b>博查</b> 赞助了本项目！博查是一个给 AI 用的搜索引擎，让你的 AI 应用连接世界知识，获得干净、准确、高质量的搜索结果。提供 Web Search API、Bocha Jev API 等多种联网搜索和模型服务。<a href="https://open.bocha.cn">open.bocha.cn</a></td>
 </tr>
 <tr>
-<td width="240" align="center"><a href="https://faka.rainlanguage.top"><img src="assets/images/sponsors/xiaoyou.png" alt="小优店铺" width="200"></a></td>
+<td width="240" align="center"><a href="https://faka.rainlanguage.top"><img src=".github/assets/images/sponsors/xiaoyou.png" alt="小优店铺" width="200"></a></td>
 <td>感谢 <b>小优店铺</b> 赞助了本项目！小优店铺是一家数字商品与账号服务店铺，为本项目的用户提供选购渠道。<a href="https://faka.rainlanguage.top">点此前往</a>。</td>
 </tr>
 <tr>
-<td width="240" align="center"><a href="https://agent.ai-tools.cn"><img src="assets/images/sponsors/vytal.jpg" alt="速创猫 Vytal" width="200"></a></td>
+<td width="240" align="center"><a href="https://agent.ai-tools.cn"><img src=".github/assets/images/sponsors/vytal.jpg" alt="速创猫 Vytal" width="200"></a></td>
 <td>感谢 <b>速创猫 Vytal</b> 赞助了本项目！速创猫 Vytal 是专业的 AI 视频工作流平台，提供可批量复用的视频工作流，降低内容制作门槛，服务内容创作者、培训机构及中小团队。<a href="https://agent.ai-tools.cn">点此前往</a>。</td>
 </tr>
 </table>
@@ -62,8 +62,8 @@
 
 <table align="center">
 <tr>
-<td align="center"><img src="assets/images/overlay.png" width="300" alt="悬浮窗：聊天上方的 Jev 分析面板" /><br/><sub>悬浮窗：危险等级、对方真实意图、排好序的 3 条候选回复</sub></td>
-<td align="center"><img src="assets/images/settings.png" width="300" alt="设置页" /><br/><sub>设置页：判断 / 回复 / 视觉三路接口分别可配</sub></td>
+<td align="center"><img src=".github/assets/images/overlay.png" width="300" alt="悬浮窗：聊天上方的 Jev 分析面板" /><br/><sub>悬浮窗：危险等级、对方真实意图、排好序的 3 条候选回复</sub></td>
+<td align="center"><img src=".github/assets/images/settings.png" width="300" alt="设置页" /><br/><sub>设置页：判断 / 回复 / 视觉三路接口分别可配</sub></td>
 </tr>
 </table>
 
@@ -79,7 +79,7 @@
 
 **扫码关注公众号可查看项目更新；需要联系时请公众号私信。** 合作、赞助、反馈、进群失败、二维码过期，都走公众号私信，其它渠道不一定看得到。
 
-<p align="center"><img src="assets/images/mp-qr.png" width="180" alt="公众号二维码" /></p>
+<p align="center"><img src=".github/assets/images/mp-qr.png" width="180" alt="公众号二维码" /></p>
 
 想听真实需求：你在哪个聊天 App 上最想要这个副驾？希望它判断什么、怎么提示、什么绝对不能碰？公众号私信直接说。
 
@@ -87,15 +87,15 @@
 <summary>点击展开交流群二维码（都已满或已过期，进群请公众号私信要新码）</summary>
 
 <table align="center"><tr>
-  <td align="center"><img src="assets/images/group-1.png" width="80" alt="1 群" /><br/><sub>1 群</sub></td>
-  <td align="center"><img src="assets/images/group-2.png" width="80" alt="2 群" /><br/><sub>2 群</sub></td>
-  <td align="center"><img src="assets/images/group-3.png" width="80" alt="3 群" /><br/><sub>3 群</sub></td>
-  <td align="center"><img src="assets/images/group-4.png" width="80" alt="4 群" /><br/><sub>4 群</sub></td>
-  <td align="center"><img src="assets/images/group-5.png" width="80" alt="5 群" /><br/><sub>5 群</sub></td>
-  <td align="center"><img src="assets/images/group-6.png" width="80" alt="6 群" /><br/><sub>6 群</sub></td>
-  <td align="center"><img src="assets/images/group-7.png" width="80" alt="7 群" /><br/><sub>7 群</sub></td>
-  <td align="center"><img src="assets/images/group-8.png" width="80" alt="8 群" /><br/><sub>8 群</sub></td>
-  <td align="center"><img src="assets/images/group-9.png" width="80" alt="9 群" /><br/><sub>9 群</sub></td>
+  <td align="center"><img src=".github/assets/images/group-1.png" width="80" alt="1 群" /><br/><sub>1 群</sub></td>
+  <td align="center"><img src=".github/assets/images/group-2.png" width="80" alt="2 群" /><br/><sub>2 群</sub></td>
+  <td align="center"><img src=".github/assets/images/group-3.png" width="80" alt="3 群" /><br/><sub>3 群</sub></td>
+  <td align="center"><img src=".github/assets/images/group-4.png" width="80" alt="4 群" /><br/><sub>4 群</sub></td>
+  <td align="center"><img src=".github/assets/images/group-5.png" width="80" alt="5 群" /><br/><sub>5 群</sub></td>
+  <td align="center"><img src=".github/assets/images/group-6.png" width="80" alt="6 群" /><br/><sub>6 群</sub></td>
+  <td align="center"><img src=".github/assets/images/group-7.png" width="80" alt="7 群" /><br/><sub>7 群</sub></td>
+  <td align="center"><img src=".github/assets/images/group-8.png" width="80" alt="8 群" /><br/><sub>8 群</sub></td>
+  <td align="center"><img src=".github/assets/images/group-9.png" width="80" alt="9 群" /><br/><sub>9 群</sub></td>
 </tr></table>
 
 </details>
@@ -113,14 +113,14 @@
 
 <table>
 <tr>
-<td width="150" align="center"><a href="https://github.com/lanyijianke"><img src="assets/images/friends/lanyijianke.jpg" width="100" alt="蓝衣剑客" /></a><br/><b>蓝衣剑客</b></td>
+<td width="150" align="center"><a href="https://github.com/lanyijianke"><img src=".github/assets/images/friends/lanyijianke.jpg" width="100" alt="蓝衣剑客" /></a><br/><b>蓝衣剑客</b></td>
 <td>资深 AI 专家、作家，火山引擎领航 KOL、阿里云 Agent 创客、WaytoAGI 核心创作者。深耕软件开发、系统架构与项目管理，著有《豆包高效办公》《Kimi 高效办公》等畅销 AI 书籍，获京东图书 2025 年度超级新书、2025 机工创作之星；曾参与多项 AI 领域标准及国家级报告起草，为数十家世界百强企业提供企业级 AI 咨询与实施。<br/><br/>GitHub：<a href="https://github.com/lanyijianke">@lanyijianke</a> · 微信：lanyijianke1992</td>
 </tr>
 </table>
 
 ## 版权与许可
 
-Copyright © 2026 Finderchangchang 与 jev-chat 贡献者。代码以 [MIT](LICENSE) 协议开源，另见 [NOTICE](NOTICE)。
+Copyright © 2026 Finderchangchang 与 jev-chat 贡献者。代码以 [MIT](LICENSE) 协议开源，另见 [NOTICE](NOTICE)。 贡献者名单见 [CONTRIBUTORS](.github/CONTRIBUTORS.md)。
 
 - **可以商用**：个人和公司都可以使用、修改、再分发，或集成进自己的产品，不需要付费或事先授权。
 - **必须注明出处**：分发或商用时保留 LICENSE 与 NOTICE，并在产品「关于」页、说明文档或发布页写明来源。推荐写法：`基于 Jev 聊天助手（https://github.com/jev-chat/jev-chat-jarvis）二次开发`。

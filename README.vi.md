@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/images/logo.png" width="150" alt="Jev 聊天助手" />
+<img src=".github/assets/images/logo.png" width="150" alt="Jev 聊天助手" />
 
 # Jev 聊天助手
 
@@ -22,7 +22,7 @@
 
 | Bản quốc tế · Android | Bản tiếng Trung · Android | Windows | macOS |
 | :---: | :---: | :---: | :---: |
-| Sắp ra mắt | [Tải APK v1.7](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/apk/jev-assistant-v1.7-release.apk) | [Tải bản Windows](https://github.com/jev-chat/jev-chat-windows/releases) | [Tải bản macOS](https://github.com/jev-chat/jev-chat-jarvis-mac/releases) |
+| Sắp ra mắt | [Tải APK v1.7](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/cn/apk/jev-assistant-v1.7-release.apk) | [Tải bản Windows](https://github.com/jev-chat/jev-chat-windows/releases) | [Tải bản macOS](https://github.com/jev-chat/jev-chat-jarvis-mac/releases) |
 | Giao diện tiếng Anh · Bắt đầu với WhatsApp | Giao diện tiếng Trung · QQ / 飞书 / X / WhatsApp | Hỗ trợ trả lời bên cạnh cửa sổ chat | Cửa sổ nổi nhận diện ý định tin nhắn |
 | Do [@smgonthebeat](https://github.com/smgonthebeat) phát triển chính | Android 11+ · ARM64 · [Hướng dẫn](cn/README.vi.md) | Windows 10 1903+ / 11 | macOS 13+ · Apple Silicon |
 
@@ -42,15 +42,15 @@ Nếu dự án hữu ích với bạn, hãy nhấn **Star** ở góc trên bên 
 
 <table>
 <tr>
-<td width="240" align="center"><a href="https://open.bocha.cn"><img src="assets/images/sponsors/bocha.png" alt="博查" width="200"></a></td>
+<td width="240" align="center"><a href="https://open.bocha.cn"><img src=".github/assets/images/sponsors/bocha.png" alt="博查" width="200"></a></td>
 <td>Cảm ơn <b>博查</b> đã tài trợ cho dự án này! 博查 là một công cụ tìm kiếm dành cho AI, giúp ứng dụng AI của bạn kết nối với tri thức thế giới và tiếp cận kết quả tìm kiếm sạch, chính xác, chất lượng cao. Cung cấp Web Search API, Bocha Jev API cùng nhiều dịch vụ tìm kiếm trực tuyến và dịch vụ mô hình khác. <a href="https://open.bocha.cn">open.bocha.cn</a></td>
 </tr>
 <tr>
-<td width="240" align="center"><a href="https://faka.rainlanguage.top"><img src="assets/images/sponsors/xiaoyou.png" alt="小优店铺" width="200"></a></td>
+<td width="240" align="center"><a href="https://faka.rainlanguage.top"><img src=".github/assets/images/sponsors/xiaoyou.png" alt="小优店铺" width="200"></a></td>
 <td>Cảm ơn <b>小优店铺</b> đã tài trợ cho dự án này! 小优店铺 là một cửa hàng cung cấp sản phẩm số và dịch vụ tài khoản, cung cấp cho người dùng dự án một kênh mua sắm. <a href="https://faka.rainlanguage.top">Truy cập tại đây</a>.</td>
 </tr>
 <tr>
-<td width="240" align="center"><a href="https://agent.ai-tools.cn"><img src="assets/images/sponsors/vytal.jpg" alt="速创猫 Vytal" width="200"></a></td>
+<td width="240" align="center"><a href="https://agent.ai-tools.cn"><img src=".github/assets/images/sponsors/vytal.jpg" alt="速创猫 Vytal" width="200"></a></td>
 <td>Cảm ơn <b>速创猫 Vytal</b> đã tài trợ cho dự án này! 速创猫 Vytal là nền tảng quy trình làm việc video chuyên nghiệp bằng AI, cung cấp quy trình video có thể tái sử dụng hàng loạt, giúp giảm rào cản sản xuất nội dung và phục vụ nhà sáng tạo nội dung, cơ sở đào tạo cùng các nhóm vừa và nhỏ. <a href="https://agent.ai-tools.cn">Truy cập tại đây</a>.</td>
 </tr>
 </table>
@@ -61,8 +61,8 @@ Nếu dự án hữu ích với bạn, hãy nhấn **Star** ở góc trên bên 
 
 <table align="center">
 <tr>
-<td align="center"><img src="assets/images/overlay.png" width="300" alt="Cửa sổ nổi: khung phân tích Jev phía trên cuộc trò chuyện" /><br/><sub>Cửa sổ nổi: mức độ nguy hiểm, ý định thật của đối phương và 3 câu trả lời đã được xếp hạng</sub></td>
-<td align="center"><img src="assets/images/settings.png" width="300" alt="Trang cài đặt" /><br/><sub>Trang cài đặt: có thể cấu hình riêng API phân tích, trả lời và thị giác</sub></td>
+<td align="center"><img src=".github/assets/images/overlay.png" width="300" alt="Cửa sổ nổi: khung phân tích Jev phía trên cuộc trò chuyện" /><br/><sub>Cửa sổ nổi: mức độ nguy hiểm, ý định thật của đối phương và 3 câu trả lời đã được xếp hạng</sub></td>
+<td align="center"><img src=".github/assets/images/settings.png" width="300" alt="Trang cài đặt" /><br/><sub>Trang cài đặt: có thể cấu hình riêng API phân tích, trả lời và thị giác</sub></td>
 </tr>
 </table>
 
@@ -78,7 +78,7 @@ Nếu dự án hữu ích với bạn, hãy nhấn **Star** ở góc trên bên 
 
 **Nếu cần liên hệ, hãy nhắn tin riêng qua tài khoản công khai chính thức trên WeChat.** Hợp tác, tài trợ, phản hồi, không tham gia được nhóm, mã QR hết hạn đều phải nhắn tin riêng qua tài khoản công khai chính thức trên WeChat; các kênh khác không bảo đảm nhận được.
 
-<p align="center"><img src="assets/images/mp-qr.png" width="180" alt="Mã QR tài khoản công khai chính thức trên WeChat" /></p>
+<p align="center"><img src=".github/assets/images/mp-qr.png" width="180" alt="Mã QR tài khoản công khai chính thức trên WeChat" /></p>
 
 Muốn biết nhu cầu thật: bạn muốn trợ lý này nhất trong ứng dụng chat nào? Bạn muốn nó phân tích điều gì, hiển thị thế nào, và điều tuyệt đối nào không được chạm tới? Hãy nhắn tin riêng qua tài khoản công khai chính thức trên WeChat.
 
@@ -86,15 +86,15 @@ Muốn biết nhu cầu thật: bạn muốn trợ lý này nhất trong ứng d
 <summary>Nhấn để xem mã QR của các nhóm (đều đã đầy hoặc hết hạn, hãy nhắn tin riêng qua tài khoản công khai chính thức trên WeChat để lấy mã mới)</summary>
 
 <table align="center"><tr>
-  <td align="center"><img src="assets/images/group-1.png" width="80" alt="Nhóm 1" /><br/><sub>Nhóm 1</sub></td>
-  <td align="center"><img src="assets/images/group-2.png" width="80" alt="Nhóm 2" /><br/><sub>Nhóm 2</sub></td>
-  <td align="center"><img src="assets/images/group-3.png" width="80" alt="Nhóm 3" /><br/><sub>Nhóm 3</sub></td>
-  <td align="center"><img src="assets/images/group-4.png" width="80" alt="Nhóm 4" /><br/><sub>Nhóm 4</sub></td>
-  <td align="center"><img src="assets/images/group-5.png" width="80" alt="Nhóm 5" /><br/><sub>Nhóm 5</sub></td>
-  <td align="center"><img src="assets/images/group-6.png" width="80" alt="Nhóm 6" /><br/><sub>Nhóm 6</sub></td>
-  <td align="center"><img src="assets/images/group-7.png" width="80" alt="Nhóm 7" /><br/><sub>Nhóm 7</sub></td>
-  <td align="center"><img src="assets/images/group-8.png" width="80" alt="Nhóm 8" /><br/><sub>Nhóm 8</sub></td>
-  <td align="center"><img src="assets/images/group-9.png" width="80" alt="Nhóm 9" /><br/><sub>Nhóm 9</sub></td>
+  <td align="center"><img src=".github/assets/images/group-1.png" width="80" alt="Nhóm 1" /><br/><sub>Nhóm 1</sub></td>
+  <td align="center"><img src=".github/assets/images/group-2.png" width="80" alt="Nhóm 2" /><br/><sub>Nhóm 2</sub></td>
+  <td align="center"><img src=".github/assets/images/group-3.png" width="80" alt="Nhóm 3" /><br/><sub>Nhóm 3</sub></td>
+  <td align="center"><img src=".github/assets/images/group-4.png" width="80" alt="Nhóm 4" /><br/><sub>Nhóm 4</sub></td>
+  <td align="center"><img src=".github/assets/images/group-5.png" width="80" alt="Nhóm 5" /><br/><sub>Nhóm 5</sub></td>
+  <td align="center"><img src=".github/assets/images/group-6.png" width="80" alt="Nhóm 6" /><br/><sub>Nhóm 6</sub></td>
+  <td align="center"><img src=".github/assets/images/group-7.png" width="80" alt="Nhóm 7" /><br/><sub>Nhóm 7</sub></td>
+  <td align="center"><img src=".github/assets/images/group-8.png" width="80" alt="Nhóm 8" /><br/><sub>Nhóm 8</sub></td>
+  <td align="center"><img src=".github/assets/images/group-9.png" width="80" alt="Nhóm 9" /><br/><sub>Nhóm 9</sub></td>
 </tr></table>
 
 </details>
@@ -112,14 +112,14 @@ Xem [chính sách quyền riêng tư](cn/PRIVACY.md) để biết nội dung nà
 
 <table>
 <tr>
-<td width="150" align="center"><a href="https://github.com/lanyijianke"><img src="assets/images/friends/lanyijianke.jpg" width="100" alt="蓝衣剑客" /></a><br/><b>蓝衣剑客</b></td>
+<td width="150" align="center"><a href="https://github.com/lanyijianke"><img src=".github/assets/images/friends/lanyijianke.jpg" width="100" alt="蓝衣剑客" /></a><br/><b>蓝衣剑客</b></td>
 <td>Chuyên gia AI kỳ cựu, tác giả sách, KOL dẫn dắt của 火山引擎, nhà sáng tạo Agent của 阿里云 và tác giả cốt lõi của WaytoAGI. Có kinh nghiệm sâu sắc về phát triển phần mềm, kiến trúc hệ thống và quản lý dự án; tác giả các cuốn sách AI bán chạy như 《豆包高效办公》《Kimi 高效办公》, từng đạt 京东图书 2025 年度超级新书 và 2025 机工创作之星; từng tham gia soạn thảo nhiều tiêu chuẩn trong lĩnh vực AI và các báo cáo cấp quốc gia; tư vấn và triển khai AI ở cấp doanh nghiệp cho hàng chục công ty thuộc Fortune Global 100.<br/><br/>GitHub: <a href="https://github.com/lanyijianke">@lanyijianke</a> · Email: <a href="mailto:lanyijianke@outlook.com">lanyijianke@outlook.com</a></td>
 </tr>
 </table>
 
 ## Bản quyền và giấy phép
 
-Copyright © 2026 Finderchangchang và những người đóng góp cho jev-chat. Mã nguồn được phát hành theo giấy phép mã nguồn mở [MIT](LICENSE), xem thêm [NOTICE](NOTICE).
+Copyright © 2026 Finderchangchang và những người đóng góp cho jev-chat. Mã nguồn được phát hành theo giấy phép mã nguồn mở [MIT](LICENSE), xem thêm [NOTICE](NOTICE). Danh sách người đóng góp: [CONTRIBUTORS](.github/CONTRIBUTORS.md).
 
 - **Có thể sử dụng thương mại**: cả cá nhân và công ty đều có thể sử dụng, chỉnh sửa, phân phối lại hoặc tích hợp vào sản phẩm của mình mà không cần trả phí hoặc xin phép trước.
 - **Bắt buộc ghi nguồn**: khi phân phối hoặc sử dụng thương mại, phải giữ lại LICENSE và NOTICE, đồng thời ghi nguồn trong trang “Giới thiệu”, tài liệu hoặc trang phát hành của sản phẩm. Cách ghi được khuyến nghị: `Dựa trên Jev 聊天助手（https://github.com/jev-chat/jev-chat-jarvis） để phát triển tiếp`.

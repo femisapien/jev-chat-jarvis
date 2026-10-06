@@ -1,10 +1,10 @@
 <div align="center">
 
-<img src="../assets/images/logo.png" width="96" alt="Jev 聊天助手" />
+<img src="../.github/assets/images/logo.png" width="96" alt="Jev 聊天助手" />
 
 # Jev 聊天助手 · Bản tiếng Trung (Android)
 
-[← Quay lại trang tổng quan](../README.vi.md) · [Tải APK v1.7](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/apk/jev-assistant-v1.7-release.apk) · [Nhật ký thay đổi](CHANGELOG.md) · [Chính sách quyền riêng tư](PRIVACY.md)
+[← Quay lại trang tổng quan](../README.vi.md) · [Tải APK v1.7](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/cn/apk/jev-assistant-v1.7-release.apk) · [Nhật ký thay đổi](CHANGELOG.md) · [Chính sách quyền riêng tư](PRIVACY.md)
 
 [简体中文](README.md) · [English](README.en.md) · **Tiếng Việt**
 
@@ -14,8 +14,8 @@
 
 <table align="center">
 <tr>
-<td align="center"><img src="../assets/images/overlay.png" width="300" alt="Cửa sổ nổi: khung phân tích Jev phía trên cuộc trò chuyện" /><br/><sub>Cửa sổ nổi: mức độ nguy hiểm, ý định thật của đối phương và 3 câu trả lời đã được xếp hạng</sub></td>
-<td align="center"><img src="../assets/images/settings.png" width="300" alt="Trang cài đặt" /><br/><sub>Trang cài đặt: có thể cấu hình riêng API phân tích, trả lời và thị giác</sub></td>
+<td align="center"><img src="../.github/assets/images/overlay.png" width="300" alt="Cửa sổ nổi: khung phân tích Jev phía trên cuộc trò chuyện" /><br/><sub>Cửa sổ nổi: mức độ nguy hiểm, ý định thật của đối phương và 3 câu trả lời đã được xếp hạng</sub></td>
+<td align="center"><img src="../.github/assets/images/settings.png" width="300" alt="Trang cài đặt" /><br/><sub>Trang cài đặt: có thể cấu hình riêng API phân tích, trả lời và thị giác</sub></td>
 </tr>
 </table>
 
@@ -46,7 +46,7 @@ Dự án này chỉ đọc nội dung chat trên thiết bị của chính bạn
 
 ## Bắt đầu nhanh
 
-**1. Cài đặt.** Kho lưu trữ có gói release đã ký: [`apk/jev-assistant-v1.7-release.apk`](../apk/jev-assistant-v1.7-release.apk) (Android 11+, chỉ hỗ trợ ARM64 / `arm64-v8a`). Gói cài đặt của các phiên bản khác cũng có trong [Releases](https://github.com/jev-chat/jev-chat-jarvis/releases).
+**1. Cài đặt.** Kho lưu trữ có gói release đã ký: [`apk/jev-assistant-v1.7-release.apk`](apk/jev-assistant-v1.7-release.apk) (Android 11+, chỉ hỗ trợ ARM64 / `arm64-v8a`). Gói cài đặt của các phiên bản khác cũng có trong [Releases](https://github.com/jev-chat/jev-chat-jarvis/releases).
 
 ```bash
 adb install -r apk/jev-assistant-v1.7-release.apk
@@ -150,7 +150,7 @@ Hãy tắt rồi bật lại công tắc trợ năng trong cài đặt hệ th�
 
 ## Cách hoạt động
 
-![Quy trình chính của trợ lý đồng hành hội thoại Jev Android: đọc và OCR trên máy, gửi chữ tới API mô hình do người dùng cấu hình, hiển thị câu trả lời ứng viên và để người dùng quyết định có gửi hay không](../assets/android-core-flow-illustrations/01-chat-copilot-flow.png)
+![Quy trình chính của trợ lý đồng hành hội thoại Jev Android: đọc và OCR trên máy, gửi chữ tới API mô hình do người dùng cấu hình, hiển thị câu trả lời ứng viên và để người dùng quyết định có gửi hay không](../.github/assets/android-core-flow-illustrations/01-chat-copilot-flow.png)
 
 Hình minh họa ranh giới dữ liệu: đọc giao diện chat và OCR được thực hiện trên máy; khi kích hoạt phân tích, chữ và thông tin nền đang bật được gửi tới nhà cung cấp mô hình mà bạn cấu hình; câu trả lời ứng viên được bạn xác nhận và ứng dụng không tự gửi. Xem thêm [chính sách quyền riêng tư](PRIVACY.md).
 
@@ -196,7 +196,7 @@ JDK 17 + Android SDK (platform 35 / build-tools 35).
   - `KnowledgeActivity` trang quản lý cơ sở tri thức (ghi chú / liên hệ)
 - `tools/jev/` — bộ câu hỏi và bộ công cụ hiệu chuẩn cho Jev (Python)
 - `docs/` — tài liệu thiết kế và nghiệm thu
-- `../apk/` — gói release đã ký
+- `apk/` — gói release đã ký
 
 </details>
 

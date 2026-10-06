@@ -1,10 +1,10 @@
 <div align="center">
 
-<img src="../assets/images/logo.png" width="96" alt="Jev 聊天助手" />
+<img src="../.github/assets/images/logo.png" width="96" alt="Jev 聊天助手" />
 
 # Jev 聊天助手 · 国内版（Android）
 
-[← 返回总览](../README.md) · [下载 v1.7 APK](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/apk/jev-assistant-v1.7-release.apk) · [更新日志](CHANGELOG.md) · [隐私政策](PRIVACY.md)
+[← 返回总览](../README.md) · [下载 v1.7 APK](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/cn/apk/jev-assistant-v1.7-release.apk) · [更新日志](CHANGELOG.md) · [隐私政策](PRIVACY.md)
 
 **简体中文** · [English](README.en.md) · [Tiếng Việt](README.vi.md)
 
@@ -14,8 +14,8 @@
 
 <table align="center">
 <tr>
-<td align="center"><img src="../assets/images/overlay.png" width="300" alt="悬浮窗：聊天上方的 Jev 分析面板" /><br/><sub>悬浮窗：危险等级、对方真实意图、排好序的 3 条候选回复</sub></td>
-<td align="center"><img src="../assets/images/settings.png" width="300" alt="设置页" /><br/><sub>设置页：判断 / 回复 / 视觉三路接口分别可配</sub></td>
+<td align="center"><img src="../.github/assets/images/overlay.png" width="300" alt="悬浮窗：聊天上方的 Jev 分析面板" /><br/><sub>悬浮窗：危险等级、对方真实意图、排好序的 3 条候选回复</sub></td>
+<td align="center"><img src="../.github/assets/images/settings.png" width="300" alt="设置页" /><br/><sub>设置页：判断 / 回复 / 视觉三路接口分别可配</sub></td>
 </tr>
 </table>
 
@@ -47,7 +47,7 @@
 
 ## 快速开始
 
-**1. 装包。** 仓库里有签好名的 release 包：[下载 Jev Android v1.7 APK](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/apk/jev-assistant-v1.7-release.apk)（Android 11+，仅支持 ARM64 / `arm64-v8a`）。[Releases](https://github.com/jev-chat/jev-chat-jarvis/releases)可查看历史版本的发布说明。
+**1. 装包。** 仓库里有签好名的 release 包：[下载 Jev Android v1.7 APK](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/cn/apk/jev-assistant-v1.7-release.apk)（Android 11+，仅支持 ARM64 / `arm64-v8a`）。[Releases](https://github.com/jev-chat/jev-chat-jarvis/releases)可查看历史版本的发布说明。
 
 ```bash
 adb install -r apk/jev-assistant-v1.7-release.apk
@@ -151,7 +151,7 @@ adb install -r apk/jev-assistant-v1.7-release.apk
 
 ## 它怎么工作
 
-![Jev Android 对话副驾关键流程：本机读取与 OCR、发送文字到用户配置的模型接口、展示候选并由用户决定是否发送](../assets/android-core-flow-illustrations/01-chat-copilot-flow.png)
+![Jev Android 对话副驾关键流程：本机读取与 OCR、发送文字到用户配置的模型接口、展示候选并由用户决定是否发送](../.github/assets/android-core-flow-illustrations/01-chat-copilot-flow.png)
 
 图中展示数据边界：聊天界面读取与 OCR 在本机完成；触发分析后，文字和启用的背景信息发送到你配置的模型服务商；候选回复由你确认，应用不会代发。详见[隐私政策](PRIVACY.md)。
 
@@ -197,7 +197,7 @@ JDK 17 + Android SDK（platform 35 / build-tools 35）。
   - `KnowledgeActivity` 知识库管理页（笔记 / 联系人）
 - `tools/jev/` — Jev 题目集与校准脚手架（Python）
 - `docs/` — 设计与验收文档
-- `../apk/` — 签好名的 release 包
+- `apk/` — 签好名的 release 包
 
 </details>
 

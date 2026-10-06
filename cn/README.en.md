@@ -1,10 +1,10 @@
 <div align="center">
 
-<img src="../assets/images/logo.png" width="96" alt="Jev Chat Assistant" />
+<img src="../.github/assets/images/logo.png" width="96" alt="Jev Chat Assistant" />
 
 # Jev Chat Assistant · Chinese Edition (Android)
 
-[← Back to overview](../README.en.md) · [Download v1.7 APK](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/apk/jev-assistant-v1.7-release.apk) · [Changelog](CHANGELOG.md) · [Privacy policy](PRIVACY.md)
+[← Back to overview](../README.en.md) · [Download v1.7 APK](https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/cn/apk/jev-assistant-v1.7-release.apk) · [Changelog](CHANGELOG.md) · [Privacy policy](PRIVACY.md)
 
 [简体中文](README.md) · **English** · [Tiếng Việt](README.vi.md)
 
@@ -14,8 +14,8 @@
 
 <table align="center">
 <tr>
-<td align="center"><img src="../assets/images/overlay.png" width="300" alt="Jev analysis panel floating over a conversation" /><br/><sub>Overlay: risk level, the other person's intent, and three ranked replies</sub></td>
-<td align="center"><img src="../assets/images/settings.png" width="300" alt="Settings screen" /><br/><sub>Settings: separate API configurations for assessment, replies, and vision</sub></td>
+<td align="center"><img src="../.github/assets/images/overlay.png" width="300" alt="Jev analysis panel floating over a conversation" /><br/><sub>Overlay: risk level, the other person's intent, and three ranked replies</sub></td>
+<td align="center"><img src="../.github/assets/images/settings.png" width="300" alt="Settings screen" /><br/><sub>Settings: separate API configurations for assessment, replies, and vision</sub></td>
 </tr>
 </table>
 
@@ -46,7 +46,7 @@ Jev only reads conversations on your own device that you are authorized to view.
 
 ## Quick Start
 
-**1. Install the app.** A signed release APK is included in the repository: [`apk/jev-assistant-v1.7-release.apk`](../apk/jev-assistant-v1.7-release.apk). Requires Android 11 or later and an ARM64 (`arm64-v8a`) device. Downloads for other versions are available under [Releases](https://github.com/jev-chat/jev-chat-jarvis/releases).
+**1. Install the app.** A signed release APK is included in the repository: [`apk/jev-assistant-v1.7-release.apk`](apk/jev-assistant-v1.7-release.apk). Requires Android 11 or later and an ARM64 (`arm64-v8a`) device. Downloads for other versions are available under [Releases](https://github.com/jev-chat/jev-chat-jarvis/releases).
 
 ```bash
 adb install -r apk/jev-assistant-v1.7-release.apk
@@ -208,7 +208,7 @@ Requires JDK 17 and the Android SDK (platform 35 / build-tools 35).
   - `KnowledgeActivity`: Knowledge base management screen for notes and contacts.
 - `tools/jev/`: Jev question sets and calibration tooling in Python.
 - `docs/`: Design and acceptance documentation.
-- `../apk/`: Signed release APKs.
+- `apk/`: Signed release APKs.
 
 </details>
 
