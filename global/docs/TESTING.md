@@ -5,7 +5,7 @@ evaluations against the real models that cost a little money and are run by hand
 
 ## Offline unit tests
 
-Run from the `overseas/` directory:
+Run from the `global/` directory:
 
 ```bash
 export JAVA_HOME=/path/to/jdk-17

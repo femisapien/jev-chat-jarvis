@@ -1,8 +1,8 @@
 ---
 name: Bug report (WhatsApp assistant)
-about: Something in Jev for WhatsApp (overseas/) did not work as expected
+about: Something in Jev for WhatsApp (global/) did not work as expected
 title: "[WhatsApp] "
-labels: bug, overseas
+labels: bug, global
 ---
 
 **What happened**

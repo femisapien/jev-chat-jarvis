@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="../docs/images/logo.png" width="150" alt="Jev" />
+<img src="../.github/assets/images/logo.png" width="150" alt="Jev" />
 
 # Jev for WhatsApp
 
@@ -22,7 +22,7 @@
 | [下载 APK（v0.1.0）](https://github.com/jev-chat/jev-chat-jarvis/releases/tag/whatsapp-v0.1.0) |
 | Android 11+ · 不限 CPU 架构 · 10.6 MB · 英文聊天 |
 
-这是 Jev 的英文版，只支持 WhatsApp。它和仓库根目录的中文版 [Jev 聊天助手](../README.md)（QQ、X、飞书）是两个独立的 App：包名不同（`com.jev.overseas`），引擎和构建也各自独立，可以同时装在一台手机上。
+这是 Jev 的英文版，只支持 WhatsApp。它和仓库根目录的中文版 [Jev 聊天助手](../.github/README.md)（QQ、X、飞书）是两个独立的 App：包名不同（`com.jev.overseas`），引擎和构建也各自独立，可以同时装在一台手机上。
 
 App 界面是英文的，因为它面向的是用英文聊天的用户。
 
@@ -228,7 +228,7 @@ App 本身免费开源。模型调用用你自己的 OpenRouter key 付费，一
 <details>
 <summary><b>构建与目录结构</b></summary>
 
-JDK 17 + Android SDK（platform 35），在 `overseas/` 目录下运行：
+JDK 17 + Android SDK（platform 35），在 `global/` 目录下运行：
 
 ```bash
 ./gradlew test               # 离线 unit tests，不需要 key，不联网
@@ -270,7 +270,7 @@ JDK 17 + Android SDK（platform 35），在 `overseas/` 目录下运行：
 
 同在 [jev-chat](https://github.com/jev-chat) 组织下：
 
-- [Jev 聊天助手 Android 版](../README.md)（中文）：QQ、X、飞书。
+- [Jev 聊天助手 Android 版](../.github/README.md)（中文）：QQ、X、飞书。
 - [Jev 聊天助手 macOS 版](https://github.com/jev-chat/jev-chat-jarvis-mac) 和 [Windows 版](https://github.com/jev-chat/jev-chat-windows)：桌面聊天窗口。
 
 ## 版权与许可

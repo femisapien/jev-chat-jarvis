@@ -1,7 +1,7 @@
 # Privacy: Jev for WhatsApp
 
 This covers the Android app in this directory (`com.jev.overseas`). The Chinese app
-in the repository root has its own [privacy policy](../PRIVACY.md).
+in the repository root has its own [privacy policy](../cn/PRIVACY.md).
 
 The project has no server and collects nothing. The app talks to one service,
 OpenRouter, with the API key you provide.
