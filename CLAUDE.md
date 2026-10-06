@@ -29,7 +29,7 @@
 - 手机 QQ 9.3.50（2026-09-21 实测，小米 14 / 1200×2670）：节点**不混淆**，普通 `uiautomator dump` 即可读。消息正文 `com.tencent.mobileqq:id/mjn`（TextView，text 即正文），群昵称 `id/mjq`，标题 `id/371`，输入框 `id/input`，发送按钮 `id/send_btn`（**绝不 performAction**）。时间戳与系统提示条无 id，只采 `id/mjn` 就自然排除。
 - QQ 全程是 `SplashActivity`（fragment 架构），**不能按 activity 判断是否在聊天窗**，只能看树里有没有 `id/mjn` / `id/input`。头像贴各自外侧（别人 left≈width×0.13，自己 right≈width−width×0.13），判「我/对方」要比左右两边离头像列的距离，不能用中心点（长消息中心会过半屏）。
 - X / Twitter 12.25.2（2026-09-21 实测，小米 14 / 1200×2670 / 中文界面）：私信页是 **Compose UI，消息节点没有 resource-id**，`android.view.View`、全宽 `[0,y][1200,y+h]`、text 为空，**全部信息在 content-desc**，格式 `发件人：正文。8:11 上午。Read。`（全角冒号分隔、`。` 粘字段、末尾可能有时间和 `Read`）。附件行 `All-In：附加的帖子。。` 内部嵌套引用帖子的 TextView，只采 View 自身的 desc、不采子节点。
-- WhatsApp（规则来自 #73 @smgonthebeat，按 2.26.38.73 录屏）：`capture/WhatsAppAdapter.kt`，纯规则在 `WhatsAppRules`（不依赖 Android 类，`app/src/test/resources/whatsapp/` 的录屏数据驱动单测）。只认 resource-id 和位置：对话页 = `conversation_contact_name` + `entry`；出现群聊 id 就返回 null（群聊不读）；读不到文字也返回 null，**永远不给空快照**，所以不会触发截屏；`NO_SCREENSHOT_PKGS` 同时关掉手动「截屏识别一次」。
+- WhatsApp（规则来自 #73 @smgonthebeat，按 2.26.38.73 录屏）：`capture/WhatsAppAdapter.kt`，纯规则在 `WhatsAppRules`（不依赖 Android 类，`cn/app/src/test/resources/whatsapp/` 的录屏数据驱动单测）。只认 resource-id 和位置：对话页 = `conversation_contact_name` + `entry`；出现群聊 id 就返回 null（群聊不读）；读不到文字也返回 null，**永远不给空快照**，所以不会触发截屏；`NO_SCREENSHOT_PKGS` 同时关掉手动「截屏识别一次」。
 - X **所有页面都是 `com.x.android.main.MainActivity`，不能按 activity 判窗**：对话页有 EditText（唯一那个，[204,2424][1152,2568]），私信列表页没有 → 靠「树里有没有可编辑节点」判断。列表页的行长得也像（全宽 View + desc），但格式是 `All-In, @all_in_2026, 正文…`，用含 `, @` 再排除一次。发送按钮输入后才出现，**绝不点**。
 - 采集层按 App 分发：`capture/ChatAppAdapter.kt` 一个 App 一个适配器，`ChatCaptureService` 按前台包名查表；下游通用。
 - Jev = TypeSafe 的判断模型，只回答选择题/打分/是非，不生成文字。走 OpenRouter：
@@ -45,10 +45,10 @@
 
 | 目录 | 归属 | 说明 |
 |---|---|---|
-| `app/`、`gradle/`、根 gradle 文件 | Android 构建方 | 安卓工程 |
-| `tools/jev/` | Jev 判断方 | Python 题目集与校准脚手架，PC 上跑 |
-| `docs/` | 主控 | 验收标准、报告 |
-| `docs/v1.3-plan.md` | 主控 | v1.3 总方案与修订，**所有 worker 必读** |
+| `cn/`（`app/`、`gradle/`、gradle 文件） | Android 构建方 | 国内版安卓工程，在 `cn/` 里跑 `./gradlew` |
+| `cn/tools/jev/` | Jev 判断方 | Python 题目集与校准脚手架，PC 上跑 |
+| `cn/docs/` | 主控 | 验收标准、报告 |
+| `cn/docs/v1.3-plan.md` | 主控 | v1.3 总方案与修订，**所有 worker 必读** |
 | `_reports/` | 所有人 | 每个任务的交付报告写这里 |
 
 跨边界的问题**只报告，不改**，由主控收口。

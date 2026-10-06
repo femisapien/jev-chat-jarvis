@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/images/logo.png" width="150" alt="Jev 聊天助手" />
+<img src="assets/images/logo.png" width="150" alt="Jev 聊天助手" />
 
 # Jev 聊天助手
 
@@ -8,11 +8,11 @@
 
 [![Stars](https://img.shields.io/github/stars/jev-chat/jev-chat-jarvis?style=flat-square&logo=github&label=Stars)](https://github.com/jev-chat/jev-chat-jarvis/stargazers)
 [![Forks](https://img.shields.io/github/forks/jev-chat/jev-chat-jarvis?style=flat-square&logo=github&label=Forks)](https://github.com/jev-chat/jev-chat-jarvis/forks)
-[![Version](https://img.shields.io/badge/%E7%89%88%E6%9C%AC-v1.7-1f6feb?style=flat-square)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/%E7%89%88%E6%9C%AC-v1.7-1f6feb?style=flat-square)](cn/CHANGELOG.md)
 [![Android](https://img.shields.io/badge/Android-11%2B-3DDC84?style=flat-square&logo=android&logoColor=white)](#bắt-đầu-nhanh)
 [![License](https://img.shields.io/github/license/jev-chat/jev-chat-jarvis?style=flat-square)](LICENSE)
 
-[Trang web](https://chatjevs.com) · [Chính sách quyền riêng tư](PRIVACY.md) · [Tải APK](apk/jev-assistant-v1.7-release.apk) · [Phiên bản trước](https://github.com/jev-chat/jev-chat-jarvis/releases) · [Nhật ký thay đổi](CHANGELOG.md) · [Bản macOS](https://github.com/jev-chat/jev-chat-jarvis-mac) · [Bản Windows](https://github.com/jev-chat/jev-chat-windows)
+[Trang web](https://chatjevs.com) · [Chính sách quyền riêng tư](cn/PRIVACY.md) · [Tải APK](apk/jev-assistant-v1.7-release.apk) · [Phiên bản trước](https://github.com/jev-chat/jev-chat-jarvis/releases) · [Nhật ký thay đổi](cn/CHANGELOG.md) · [Bản macOS](https://github.com/jev-chat/jev-chat-jarvis-mac) · [Bản Windows](https://github.com/jev-chat/jev-chat-windows)
 
 [简体中文](README.md) · [English](README.en.md) · **Tiếng Việt**
 
@@ -27,15 +27,15 @@
 
 <table>
 <tr>
-<td width="240" align="center"><a href="https://open.bocha.cn"><img src="docs/images/sponsors/bocha.png" alt="博查" width="200"></a></td>
+<td width="240" align="center"><a href="https://open.bocha.cn"><img src="assets/images/sponsors/bocha.png" alt="博查" width="200"></a></td>
 <td>Cảm ơn <b>博查</b> đã tài trợ cho dự án này! 博查 là một công cụ tìm kiếm dành cho AI, giúp ứng dụng AI của bạn kết nối với tri thức thế giới và tiếp cận kết quả tìm kiếm sạch, chính xác, chất lượng cao. Cung cấp Web Search API, Bocha Jev API cùng nhiều dịch vụ tìm kiếm trực tuyến và dịch vụ mô hình khác. <a href="https://open.bocha.cn">open.bocha.cn</a></td>
 </tr>
 <tr>
-<td width="240" align="center"><a href="https://faka.rainlanguage.top"><img src="docs/images/sponsors/xiaoyou.png" alt="小优店铺" width="200"></a></td>
+<td width="240" align="center"><a href="https://faka.rainlanguage.top"><img src="assets/images/sponsors/xiaoyou.png" alt="小优店铺" width="200"></a></td>
 <td>Cảm ơn <b>小优店铺</b> đã tài trợ cho dự án này! 小优店铺 là một cửa hàng cung cấp sản phẩm số và dịch vụ tài khoản, cung cấp cho người dùng dự án một kênh mua sắm. <a href="https://faka.rainlanguage.top">Truy cập tại đây</a>.</td>
 </tr>
 <tr>
-<td width="240" align="center"><a href="https://agent.ai-tools.cn"><img src="docs/images/sponsors/vytal.jpg" alt="速创猫 Vytal" width="200"></a></td>
+<td width="240" align="center"><a href="https://agent.ai-tools.cn"><img src="assets/images/sponsors/vytal.jpg" alt="速创猫 Vytal" width="200"></a></td>
 <td>Cảm ơn <b>速创猫 Vytal</b> đã tài trợ cho dự án này! 速创猫 Vytal là nền tảng quy trình làm việc video chuyên nghiệp bằng AI, cung cấp quy trình video có thể tái sử dụng hàng loạt, giúp giảm rào cản sản xuất nội dung và phục vụ nhà sáng tạo nội dung, cơ sở đào tạo cùng các nhóm vừa và nhỏ. <a href="https://agent.ai-tools.cn">Truy cập tại đây</a>.</td>
 </tr>
 </table>
@@ -46,8 +46,8 @@
 
 <table align="center">
 <tr>
-<td align="center"><img src="docs/images/overlay.png" width="300" alt="Cửa sổ nổi: khung phân tích Jev phía trên cuộc trò chuyện" /><br/><sub>Cửa sổ nổi: mức độ nguy hiểm, ý định thật của đối phương và 3 câu trả lời đã được xếp hạng</sub></td>
-<td align="center"><img src="docs/images/settings.png" width="300" alt="Trang cài đặt" /><br/><sub>Trang cài đặt: có thể cấu hình riêng API phân tích, trả lời và thị giác</sub></td>
+<td align="center"><img src="assets/images/overlay.png" width="300" alt="Cửa sổ nổi: khung phân tích Jev phía trên cuộc trò chuyện" /><br/><sub>Cửa sổ nổi: mức độ nguy hiểm, ý định thật của đối phương và 3 câu trả lời đã được xếp hạng</sub></td>
+<td align="center"><img src="assets/images/settings.png" width="300" alt="Trang cài đặt" /><br/><sub>Trang cài đặt: có thể cấu hình riêng API phân tích, trả lời và thị giác</sub></td>
 </tr>
 </table>
 
@@ -109,7 +109,7 @@ Tại Cài đặt → Phân tích → “Cơ sở tri thức và liên hệ”.
 - **Ghi chú**: tiêu đề / nội dung / thẻ / thường trực. Ghi chú thường trực luôn được đưa vào; các ghi chú khác chỉ được đưa vào khi thẻ hoặc tiêu đề xuất hiện trong tiêu đề cuộc trò chuyện hoặc trong 6 tin nhắn gần nhất, tối đa 5 ghi chú. Hỗ trợ nhập bằng cách dán văn bản nhiều dòng, phân đoạn theo dòng trống và lấy dòng đầu mỗi đoạn làm tiêu đề.
 - **Liên hệ**: tên / bí danh (mỗi dòng một bí danh) / quan hệ / ghi chú. Có hiệu lực khi tiêu đề cuộc trò chuyện khớp với tên hoặc bất kỳ bí danh nào; tự động bỏ qua số người ở cuối tên nhóm, khoảng trắng đầu/cuối và khác biệt chữ hoa chữ thường. Có thể nhấn giữ vào bong bóng cửa sổ nổi để lưu nhanh cuộc trò chuyện hiện tại làm liên hệ bằng một chạm.
 - **Lịch sử**: “Ghi lại lịch sử trò chuyện (chỉ lưu trên máy)” mặc định tắt; khi bật, mỗi lần phân tích sẽ kèm N tin nhắn gần nhất (mặc định 30) và tự động loại bỏ phần đã hiển thị trên màn hình.
-- **Xóa**: cơ sở tri thức và lịch sử đều nằm trong thư mục riêng của ứng dụng; nút “Xóa cơ sở tri thức và lịch sử” trong cài đặt xóa toàn bộ chỉ bằng một lần nhấn, không ghi vào nhật ký, không đưa vào git. Xem [chính sách quyền riêng tư](PRIVACY.md) để biết các loại dữ liệu cụ thể, mục đích, bên nhận và cách lưu giữ.
+- **Xóa**: cơ sở tri thức và lịch sử đều nằm trong thư mục riêng của ứng dụng; nút “Xóa cơ sở tri thức và lịch sử” trong cài đặt xóa toàn bộ chỉ bằng một lần nhấn, không ghi vào nhật ký, không đưa vào git. Xem [chính sách quyền riêng tư](cn/PRIVACY.md) để biết các loại dữ liệu cụ thể, mục đích, bên nhận và cách lưu giữ.
 - Phần đầu khung phân tích trong cửa sổ nổi hiển thị một dòng “Cơ sở tri thức N mục · Lịch sử M mục” để tiện xác nhận những gì đã được đưa vào.
 
 ### API và mô hình
@@ -148,7 +148,7 @@ Không cần root và không phải cài bất kỳ module nào. Ứng dụng kh
 <details>
 <summary><b>Lịch sử trò chuyện của tôi có được tải lên không?</b></summary>
 
-Khi kích hoạt phân tích, nội dung chat hiện tại cùng ghi chú liên hệ mà bạn đã bật, nội dung cơ sở tri thức được truy xuất và lịch sử trò chuyện sẽ được gửi tới API mô hình mà bạn cấu hình trong cài đặt. Tác giả dự án không vận hành máy chủ trung gian và không nhận được nội dung này; ảnh chụp màn hình được OCR trên máy và không tải lên. Lịch sử mặc định tắt; khi bật, lịch sử chỉ được lưu trong thư mục riêng của ứng dụng trên máy. Nhà cung cấp mô hình bên thứ ba có thể xử lý nội dung yêu cầu theo chính sách của họ; vui lòng xem [chính sách quyền riêng tư](PRIVACY.md) và chính sách của nhà cung cấp đã chọn trước khi sử dụng.
+Khi kích hoạt phân tích, nội dung chat hiện tại cùng ghi chú liên hệ mà bạn đã bật, nội dung cơ sở tri thức được truy xuất và lịch sử trò chuyện sẽ được gửi tới API mô hình mà bạn cấu hình trong cài đặt. Tác giả dự án không vận hành máy chủ trung gian và không nhận được nội dung này; ảnh chụp màn hình được OCR trên máy và không tải lên. Lịch sử mặc định tắt; khi bật, lịch sử chỉ được lưu trong thư mục riêng của ứng dụng trên máy. Nhà cung cấp mô hình bên thứ ba có thể xử lý nội dung yêu cầu theo chính sách của họ; vui lòng xem [chính sách quyền riêng tư](cn/PRIVACY.md) và chính sách của nhà cung cấp đã chọn trước khi sử dụng.
 
 </details>
 
@@ -184,7 +184,7 @@ Hãy tắt rồi bật lại công tắc trợ năng trong cài đặt hệ th�
 
 ![Quy trình chính của trợ lý đồng hành hội thoại Jev Android: đọc và OCR trên máy, gửi chữ tới API mô hình do người dùng cấu hình, hiển thị câu trả lời ứng viên và để người dùng quyết định có gửi hay không](assets/android-core-flow-illustrations/01-chat-copilot-flow.png)
 
-Hình minh họa ranh giới dữ liệu: đọc giao diện chat và OCR được thực hiện trên máy; khi kích hoạt phân tích, chữ và thông tin nền đang bật được gửi tới nhà cung cấp mô hình mà bạn cấu hình; câu trả lời ứng viên được bạn xác nhận và ứng dụng không tự gửi. Xem thêm [chính sách quyền riêng tư](PRIVACY.md).
+Hình minh họa ranh giới dữ liệu: đọc giao diện chat và OCR được thực hiện trên máy; khi kích hoạt phân tích, chữ và thông tin nền đang bật được gửi tới nhà cung cấp mô hình mà bạn cấu hình; câu trả lời ứng viên được bạn xác nhận và ứng dụng không tự gửi. Xem thêm [chính sách quyền riêng tư](cn/PRIVACY.md).
 
 - **Thu thập**: mỗi ứng dụng có một adapter; dịch vụ phân phối theo tên gói của ứng dụng đang ở tiền cảnh. Adapter chỉ chịu trách nhiệm biến cửa sổ hiện tại thành “tiêu đề + danh sách tin nhắn (ai nói, nói gì)”, các thành phần phía sau đều dùng chung; khi cây trợ năng không có nội dung chính thì dùng chụp màn hình + OCR ngoại tuyến làm phương án dự phòng (có giới hạn tần suất, lùi thời gian chờ khi thất bại, không chụp liên tục mỗi giây).
 - **Phân tích**: [Jev](https://docs.typesafe.ai/) chỉ trả lời lựa chọn / chấm điểm / đúng-sai, gửi tất cả câu hỏi trong một yêu cầu và trả về sau khoảng 1 giây; khi có dữ liệu khớp trong cơ sở tri thức, state sẽ chứa `background` (quan hệ + ghi chú liên hệ + ghi chú được truy xuất) và `history` (lịch sử tin nhắn).
@@ -249,7 +249,7 @@ JDK 17 + Android SDK (platform 35 / build-tools 35).
 
 **Nếu cần liên hệ, hãy nhắn tin riêng qua tài khoản công khai chính thức trên WeChat.** Hợp tác, tài trợ, phản hồi, không tham gia được nhóm, mã QR hết hạn đều phải nhắn tin riêng qua tài khoản công khai chính thức trên WeChat; các kênh khác không bảo đảm nhận được.
 
-<p align="center"><img src="docs/images/mp-qr.png" width="180" alt="Mã QR tài khoản công khai chính thức trên WeChat" /></p>
+<p align="center"><img src="assets/images/mp-qr.png" width="180" alt="Mã QR tài khoản công khai chính thức trên WeChat" /></p>
 
 Muốn biết nhu cầu thật: bạn muốn trợ lý này nhất trong ứng dụng chat nào? Bạn muốn nó phân tích điều gì, hiển thị thế nào, và điều tuyệt đối nào không được chạm tới? Hãy nhắn tin riêng qua tài khoản công khai chính thức trên WeChat.
 
@@ -257,15 +257,15 @@ Muốn biết nhu cầu thật: bạn muốn trợ lý này nhất trong ứng d
 <summary>Nhấn để xem mã QR của các nhóm (đều đã đầy hoặc hết hạn, hãy nhắn tin riêng qua tài khoản công khai chính thức trên WeChat để lấy mã mới)</summary>
 
 <table align="center"><tr>
-  <td align="center"><img src="docs/images/group-1.png" width="80" alt="Nhóm 1" /><br/><sub>Nhóm 1</sub></td>
-  <td align="center"><img src="docs/images/group-2.png" width="80" alt="Nhóm 2" /><br/><sub>Nhóm 2</sub></td>
-  <td align="center"><img src="docs/images/group-3.png" width="80" alt="Nhóm 3" /><br/><sub>Nhóm 3</sub></td>
-  <td align="center"><img src="docs/images/group-4.png" width="80" alt="Nhóm 4" /><br/><sub>Nhóm 4</sub></td>
-  <td align="center"><img src="docs/images/group-5.png" width="80" alt="Nhóm 5" /><br/><sub>Nhóm 5</sub></td>
-  <td align="center"><img src="docs/images/group-6.png" width="80" alt="Nhóm 6" /><br/><sub>Nhóm 6</sub></td>
-  <td align="center"><img src="docs/images/group-7.png" width="80" alt="Nhóm 7" /><br/><sub>Nhóm 7</sub></td>
-  <td align="center"><img src="docs/images/group-8.png" width="80" alt="Nhóm 8" /><br/><sub>Nhóm 8</sub></td>
-  <td align="center"><img src="docs/images/group-9.png" width="80" alt="Nhóm 9" /><br/><sub>Nhóm 9</sub></td>
+  <td align="center"><img src="assets/images/group-1.png" width="80" alt="Nhóm 1" /><br/><sub>Nhóm 1</sub></td>
+  <td align="center"><img src="assets/images/group-2.png" width="80" alt="Nhóm 2" /><br/><sub>Nhóm 2</sub></td>
+  <td align="center"><img src="assets/images/group-3.png" width="80" alt="Nhóm 3" /><br/><sub>Nhóm 3</sub></td>
+  <td align="center"><img src="assets/images/group-4.png" width="80" alt="Nhóm 4" /><br/><sub>Nhóm 4</sub></td>
+  <td align="center"><img src="assets/images/group-5.png" width="80" alt="Nhóm 5" /><br/><sub>Nhóm 5</sub></td>
+  <td align="center"><img src="assets/images/group-6.png" width="80" alt="Nhóm 6" /><br/><sub>Nhóm 6</sub></td>
+  <td align="center"><img src="assets/images/group-7.png" width="80" alt="Nhóm 7" /><br/><sub>Nhóm 7</sub></td>
+  <td align="center"><img src="assets/images/group-8.png" width="80" alt="Nhóm 8" /><br/><sub>Nhóm 8</sub></td>
+  <td align="center"><img src="assets/images/group-9.png" width="80" alt="Nhóm 9" /><br/><sub>Nhóm 9</sub></td>
 </tr></table>
 
 </details>
@@ -277,13 +277,13 @@ Cùng thuộc tổ chức [jev-chat](https://github.com/jev-chat):
 - [Jev 聊天助手 bản macOS](https://github.com/jev-chat/jev-chat-jarvis-mac): cửa sổ nổi nhận diện ý định tin nhắn, xem màn hình + mô hình nhỏ cục bộ để phân tích ý định và rủi ro, sau đó tạo các câu trả lời ứng viên theo kịch bản; hoàn toàn chỉ đọc.
 - [Jev 聊天助手 bản Windows](https://github.com/jev-chat/jev-chat-windows): trợ lý trả lời đặt bên cạnh cửa sổ chat, chụp màn hình cửa sổ + OCR ngoại tuyến cục bộ, điền 3 câu trả lời ứng viên bằng một chạm, thao tác gửi luôn thủ công.
 
-Xem [chính sách quyền riêng tư](PRIVACY.md) để biết nội dung nào được đọc, gửi đi, lưu ở đâu và cách xóa.
+Xem [chính sách quyền riêng tư](cn/PRIVACY.md) để biết nội dung nào được đọc, gửi đi, lưu ở đâu và cách xóa.
 
 ## Liên kết thân thiện
 
 <table>
 <tr>
-<td width="150" align="center"><a href="https://github.com/lanyijianke"><img src="docs/images/friends/lanyijianke.jpg" width="100" alt="蓝衣剑客" /></a><br/><b>蓝衣剑客</b></td>
+<td width="150" align="center"><a href="https://github.com/lanyijianke"><img src="assets/images/friends/lanyijianke.jpg" width="100" alt="蓝衣剑客" /></a><br/><b>蓝衣剑客</b></td>
 <td>Chuyên gia AI kỳ cựu, tác giả sách, KOL dẫn dắt của 火山引擎, nhà sáng tạo Agent của 阿里云 và tác giả cốt lõi của WaytoAGI. Có kinh nghiệm sâu sắc về phát triển phần mềm, kiến trúc hệ thống và quản lý dự án; tác giả các cuốn sách AI bán chạy như 《豆包高效办公》《Kimi 高效办公》, từng đạt 京东图书 2025 年度超级新书 và 2025 机工创作之星; từng tham gia soạn thảo nhiều tiêu chuẩn trong lĩnh vực AI và các báo cáo cấp quốc gia; tư vấn và triển khai AI ở cấp doanh nghiệp cho hàng chục công ty thuộc Fortune Global 100.<br/><br/>GitHub: <a href="https://github.com/lanyijianke">@lanyijianke</a> · Email: <a href="mailto:lanyijianke@outlook.com">lanyijianke@outlook.com</a></td>
 </tr>
 </table>
@@ -296,4 +296,4 @@ Copyright © 2026 Finderchangchang và những người đóng góp cho jev-chat
 - **Bắt buộc ghi nguồn**: khi phân phối hoặc sử dụng thương mại, phải giữ lại LICENSE và NOTICE, đồng thời ghi nguồn trong trang “Giới thiệu”, tài liệu hoặc trang phát hành của sản phẩm. Cách ghi được khuyến nghị: `Dựa trên Jev 聊天助手（https://github.com/jev-chat/jev-chat-jarvis） để phát triển tiếp`.
 - Không dùng tên “Jev 聊天助手”, “jev-chat” hoặc tên miền chatjevs.com để gợi ý rằng sản phẩm do tác giả gốc phát hành hoặc chứng thực.
 
-**Quyền riêng tư và miễn trừ trách nhiệm**: khi kích hoạt phân tích, nội dung trò chuyện và thông tin nền đang bật sẽ được gửi tới nhà cung cấp mô hình bên thứ ba do bạn tự cấu hình; ảnh chụp màn hình chỉ được OCR trên máy. Vui lòng đọc [chính sách quyền riêng tư](PRIVACY.md) cùng chính sách của nhà cung cấp đã chọn và tuân thủ điều khoản của QQ, X, 飞书, WhatsApp và các phần mềm khác cùng pháp luật và quy định địa phương. Tác giả không chịu trách nhiệm về hành vi xử lý dữ liệu hoặc hậu quả sử dụng của nhà cung cấp bên thứ ba.
+**Quyền riêng tư và miễn trừ trách nhiệm**: khi kích hoạt phân tích, nội dung trò chuyện và thông tin nền đang bật sẽ được gửi tới nhà cung cấp mô hình bên thứ ba do bạn tự cấu hình; ảnh chụp màn hình chỉ được OCR trên máy. Vui lòng đọc [chính sách quyền riêng tư](cn/PRIVACY.md) cùng chính sách của nhà cung cấp đã chọn và tuân thủ điều khoản của QQ, X, 飞书, WhatsApp và các phần mềm khác cùng pháp luật và quy định địa phương. Tác giả không chịu trách nhiệm về hành vi xử lý dữ liệu hoặc hậu quả sử dụng của nhà cung cấp bên thứ ba.

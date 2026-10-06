@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/images/logo.png" width="150" alt="Jev 聊天助手" />
+<img src="assets/images/logo.png" width="150" alt="Jev 聊天助手" />
 
 # Jev 聊天助手
 
@@ -8,10 +8,10 @@
 
 [![Stars](https://img.shields.io/github/stars/jev-chat/jev-chat-jarvis?style=flat-square&logo=github&label=Stars)](https://github.com/jev-chat/jev-chat-jarvis/stargazers)
 [![Forks](https://img.shields.io/github/forks/jev-chat/jev-chat-jarvis?style=flat-square&logo=github&label=Forks)](https://github.com/jev-chat/jev-chat-jarvis/forks)
-[![Version](https://img.shields.io/badge/%E7%89%88%E6%9C%AC-v1.7-1f6feb?style=flat-square)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/%E7%89%88%E6%9C%AC-v1.7-1f6feb?style=flat-square)](cn/CHANGELOG.md)
 [![License](https://img.shields.io/github/license/jev-chat/jev-chat-jarvis?style=flat-square)](LICENSE)
 
-[官网](https://chatjevs.com) · [安装与设置指南](https://chatjevs.com/guides/android-setup.html) · [候选回复使用建议](https://chatjevs.com/guides/review-ai-replies.html) · [隐私政策](PRIVACY.md) · [更新日志](CHANGELOG.md)
+[官网](https://chatjevs.com) · [安装与设置指南](https://chatjevs.com/guides/android-setup.html) · [候选回复使用建议](https://chatjevs.com/guides/review-ai-replies.html) · [隐私政策](cn/PRIVACY.md) · [更新日志](cn/CHANGELOG.md)
 
 **简体中文** · [English](README.en.md) · [Tiếng Việt](README.vi.md)
 
@@ -37,15 +37,15 @@
 
 <table>
 <tr>
-<td width="240" align="center"><a href="https://open.bocha.cn"><img src="docs/images/sponsors/bocha.png" alt="博查" width="200"></a></td>
+<td width="240" align="center"><a href="https://open.bocha.cn"><img src="assets/images/sponsors/bocha.png" alt="博查" width="200"></a></td>
 <td>感谢 <b>博查</b> 赞助了本项目！博查是一个给 AI 用的搜索引擎，让你的 AI 应用连接世界知识，获得干净、准确、高质量的搜索结果。提供 Web Search API、Bocha Jev API 等多种联网搜索和模型服务。<a href="https://open.bocha.cn">open.bocha.cn</a></td>
 </tr>
 <tr>
-<td width="240" align="center"><a href="https://faka.rainlanguage.top"><img src="docs/images/sponsors/xiaoyou.png" alt="小优店铺" width="200"></a></td>
+<td width="240" align="center"><a href="https://faka.rainlanguage.top"><img src="assets/images/sponsors/xiaoyou.png" alt="小优店铺" width="200"></a></td>
 <td>感谢 <b>小优店铺</b> 赞助了本项目！小优店铺是一家数字商品与账号服务店铺，为本项目的用户提供选购渠道。<a href="https://faka.rainlanguage.top">点此前往</a>。</td>
 </tr>
 <tr>
-<td width="240" align="center"><a href="https://agent.ai-tools.cn"><img src="docs/images/sponsors/vytal.jpg" alt="速创猫 Vytal" width="200"></a></td>
+<td width="240" align="center"><a href="https://agent.ai-tools.cn"><img src="assets/images/sponsors/vytal.jpg" alt="速创猫 Vytal" width="200"></a></td>
 <td>感谢 <b>速创猫 Vytal</b> 赞助了本项目！速创猫 Vytal 是专业的 AI 视频工作流平台，提供可批量复用的视频工作流，降低内容制作门槛，服务内容创作者、培训机构及中小团队。<a href="https://agent.ai-tools.cn">点此前往</a>。</td>
 </tr>
 </table>
@@ -56,8 +56,8 @@
 
 <table align="center">
 <tr>
-<td align="center"><img src="docs/images/overlay.png" width="300" alt="悬浮窗：聊天上方的 Jev 分析面板" /><br/><sub>悬浮窗：危险等级、对方真实意图、排好序的 3 条候选回复</sub></td>
-<td align="center"><img src="docs/images/settings.png" width="300" alt="设置页" /><br/><sub>设置页：判断 / 回复 / 视觉三路接口分别可配</sub></td>
+<td align="center"><img src="assets/images/overlay.png" width="300" alt="悬浮窗：聊天上方的 Jev 分析面板" /><br/><sub>悬浮窗：危险等级、对方真实意图、排好序的 3 条候选回复</sub></td>
+<td align="center"><img src="assets/images/settings.png" width="300" alt="设置页" /><br/><sub>设置页：判断 / 回复 / 视觉三路接口分别可配</sub></td>
 </tr>
 </table>
 
@@ -120,7 +120,7 @@ adb install -r apk/jev-assistant-v1.7-release.apk
 - **笔记**：标题 / 内容 / 标签 / 常驻。常驻笔记每次都带；其它笔记要标签或标题出现在会话标题或最近 6 条消息里才带，最多 5 条。支持多行文本粘贴导入，空行分段，每段首行当标题。
 - **联系人**：姓名 / 别名（每行一个）/ 关系 / 备注。会话标题匹配姓名或任一别名时生效，自动忽略群名尾部人数、首尾空白和大小写差异。悬浮窗气泡长按可把当前会话一键存为联系人。
 - **历史**：「记录聊天历史（只存本机）」默认关闭；开启后每次分析带上最近 N 条（默认 30），并自动去掉屏幕上已经显示过的部分。
-- **清除**：知识库与历史都存在 App 私有目录，设置里「清空知识库与历史」一键删除，不进日志、不进 git。具体数据类别、用途、接收方和保留方式见[隐私政策](PRIVACY.md)。
+- **清除**：知识库与历史都存在 App 私有目录，设置里「清空知识库与历史」一键删除，不进日志、不进 git。具体数据类别、用途、接收方和保留方式见[隐私政策](cn/PRIVACY.md)。
 - 悬浮窗面板顶部会显示一行「知识库 N 条 · 历史 M 条」，方便确认到底带了什么。
 
 ### 接口与模型
@@ -159,7 +159,7 @@ adb install -r apk/jev-assistant-v1.7-release.apk
 <details>
 <summary><b>我的聊天记录会被上传吗？</b></summary>
 
-触发分析时，当前聊天文字以及你启用的联系人备注、知识库命中内容和历史记录会发送到你在设置里配置的模型接口。项目作者不运营中转服务器，也不会收到这些内容；截图在本机 OCR，不会上传。历史记录默认关闭，开启后仅保存在手机 App 私有目录。第三方模型服务商可能按自己的政策处理请求内容，请在使用前查看[隐私政策](PRIVACY.md)及所选服务商的政策。
+触发分析时，当前聊天文字以及你启用的联系人备注、知识库命中内容和历史记录会发送到你在设置里配置的模型接口。项目作者不运营中转服务器，也不会收到这些内容；截图在本机 OCR，不会上传。历史记录默认关闭，开启后仅保存在手机 App 私有目录。第三方模型服务商可能按自己的政策处理请求内容，请在使用前查看[隐私政策](cn/PRIVACY.md)及所选服务商的政策。
 
 </details>
 
@@ -195,7 +195,7 @@ adb install -r apk/jev-assistant-v1.7-release.apk
 
 ![Jev Android 对话副驾关键流程：本机读取与 OCR、发送文字到用户配置的模型接口、展示候选并由用户决定是否发送](assets/android-core-flow-illustrations/01-chat-copilot-flow.png)
 
-图中展示数据边界：聊天界面读取与 OCR 在本机完成；触发分析后，文字和启用的背景信息发送到你配置的模型服务商；候选回复由你确认，应用不会代发。详见[隐私政策](PRIVACY.md)。
+图中展示数据边界：聊天界面读取与 OCR 在本机完成；触发分析后，文字和启用的背景信息发送到你配置的模型服务商；候选回复由你确认，应用不会代发。详见[隐私政策](cn/PRIVACY.md)。
 
 - **采集**：一个 App 一个适配器，服务按前台包名分发。适配器只负责把当前窗口变成「标题 + 消息列表（谁说的、说了什么）」，下游全部通用；树里没有正文时走截屏 + 离线 OCR 兜底（限频、失败退避，不会每秒连拍）。
 - **判断**：[Jev](https://docs.typesafe.ai/) 只回答选择 / 打分 / 是非，一次请求发全部题目，约 1 秒返回；命中知识库时 state 里会带 `background`（关系 + 联系人备注 + 命中笔记）和 `history`（历史消息）。
@@ -260,7 +260,7 @@ JDK 17 + Android SDK（platform 35 / build-tools 35）。
 
 **扫码关注公众号可查看项目更新；需要联系时请公众号私信。** 合作、赞助、反馈、进群失败、二维码过期，都走公众号私信，其它渠道不一定看得到。
 
-<p align="center"><img src="docs/images/mp-qr.png" width="180" alt="公众号二维码" /></p>
+<p align="center"><img src="assets/images/mp-qr.png" width="180" alt="公众号二维码" /></p>
 
 想听真实需求：你在哪个聊天 App 上最想要这个副驾？希望它判断什么、怎么提示、什么绝对不能碰？公众号私信直接说。
 
@@ -268,15 +268,15 @@ JDK 17 + Android SDK（platform 35 / build-tools 35）。
 <summary>点击展开交流群二维码（都已满或已过期，进群请公众号私信要新码）</summary>
 
 <table align="center"><tr>
-  <td align="center"><img src="docs/images/group-1.png" width="80" alt="1 群" /><br/><sub>1 群</sub></td>
-  <td align="center"><img src="docs/images/group-2.png" width="80" alt="2 群" /><br/><sub>2 群</sub></td>
-  <td align="center"><img src="docs/images/group-3.png" width="80" alt="3 群" /><br/><sub>3 群</sub></td>
-  <td align="center"><img src="docs/images/group-4.png" width="80" alt="4 群" /><br/><sub>4 群</sub></td>
-  <td align="center"><img src="docs/images/group-5.png" width="80" alt="5 群" /><br/><sub>5 群</sub></td>
-  <td align="center"><img src="docs/images/group-6.png" width="80" alt="6 群" /><br/><sub>6 群</sub></td>
-  <td align="center"><img src="docs/images/group-7.png" width="80" alt="7 群" /><br/><sub>7 群</sub></td>
-  <td align="center"><img src="docs/images/group-8.png" width="80" alt="8 群" /><br/><sub>8 群</sub></td>
-  <td align="center"><img src="docs/images/group-9.png" width="80" alt="9 群" /><br/><sub>9 群</sub></td>
+  <td align="center"><img src="assets/images/group-1.png" width="80" alt="1 群" /><br/><sub>1 群</sub></td>
+  <td align="center"><img src="assets/images/group-2.png" width="80" alt="2 群" /><br/><sub>2 群</sub></td>
+  <td align="center"><img src="assets/images/group-3.png" width="80" alt="3 群" /><br/><sub>3 群</sub></td>
+  <td align="center"><img src="assets/images/group-4.png" width="80" alt="4 群" /><br/><sub>4 群</sub></td>
+  <td align="center"><img src="assets/images/group-5.png" width="80" alt="5 群" /><br/><sub>5 群</sub></td>
+  <td align="center"><img src="assets/images/group-6.png" width="80" alt="6 群" /><br/><sub>6 群</sub></td>
+  <td align="center"><img src="assets/images/group-7.png" width="80" alt="7 群" /><br/><sub>7 群</sub></td>
+  <td align="center"><img src="assets/images/group-8.png" width="80" alt="8 群" /><br/><sub>8 群</sub></td>
+  <td align="center"><img src="assets/images/group-9.png" width="80" alt="9 群" /><br/><sub>9 群</sub></td>
 </tr></table>
 
 </details>
@@ -288,13 +288,13 @@ JDK 17 + Android SDK（platform 35 / build-tools 35）。
 - [Jev 聊天助手 macOS 版](https://github.com/jev-chat/jev-chat-jarvis-mac)：消息意图识别悬浮窗，看屏 + 本地小模型判断意图和风险，再按话术生成回复候选，纯只读。
 - [Jev 聊天助手 Windows 版](https://github.com/jev-chat/jev-chat-windows)：聊天窗口旁挂的回复辅助，窗口截图 + 本地离线 OCR，3 条候选一键填入，发送永远手动。
 
-隐私政策见 [PRIVACY.md](PRIVACY.md)（说明读取了什么、发给谁、存在哪里、怎么删除）。
+隐私政策见 [PRIVACY.md](cn/PRIVACY.md)（说明读取了什么、发给谁、存在哪里、怎么删除）。
 
 ## 友情链接
 
 <table>
 <tr>
-<td width="150" align="center"><a href="https://github.com/lanyijianke"><img src="docs/images/friends/lanyijianke.jpg" width="100" alt="蓝衣剑客" /></a><br/><b>蓝衣剑客</b></td>
+<td width="150" align="center"><a href="https://github.com/lanyijianke"><img src="assets/images/friends/lanyijianke.jpg" width="100" alt="蓝衣剑客" /></a><br/><b>蓝衣剑客</b></td>
 <td>资深 AI 专家、作家，火山引擎领航 KOL、阿里云 Agent 创客、WaytoAGI 核心创作者。深耕软件开发、系统架构与项目管理，著有《豆包高效办公》《Kimi 高效办公》等畅销 AI 书籍，获京东图书 2025 年度超级新书、2025 机工创作之星；曾参与多项 AI 领域标准及国家级报告起草，为数十家世界百强企业提供企业级 AI 咨询与实施。<br/><br/>GitHub：<a href="https://github.com/lanyijianke">@lanyijianke</a> · 微信：lanyijianke1992</td>
 </tr>
 </table>
@@ -307,5 +307,5 @@ Copyright © 2026 Finderchangchang 与 jev-chat 贡献者。代码以 [MIT](LICE
 - **必须注明出处**：分发或商用时保留 LICENSE 与 NOTICE，并在产品「关于」页、说明文档或发布页写明来源。推荐写法：`基于 Jev 聊天助手（https://github.com/jev-chat/jev-chat-jarvis）二次开发`。
 - 不要用「Jev 聊天助手」「jev-chat」名称或 chatjevs.com 域名暗示由原作者出品或背书。
 
-**隐私与免责声明**：触发分析时，聊天文字和启用的背景信息会发送到你自行配置的第三方模型服务商；截图仅在本机 OCR。请阅读[隐私政策](PRIVACY.md)以及所选服务商的政策，并遵守 QQ、X、飞书、WhatsApp 等软件的用户协议与当地法律法规；因违反第三方 App 用户协议导致的账号限制等后果由使用者自行承担。作者不对第三方服务商的数据处理行为或使用后果负责。
+**隐私与免责声明**：触发分析时，聊天文字和启用的背景信息会发送到你自行配置的第三方模型服务商；截图仅在本机 OCR。请阅读[隐私政策](cn/PRIVACY.md)以及所选服务商的政策，并遵守 QQ、X、飞书、WhatsApp 等软件的用户协议与当地法律法规；因违反第三方 App 用户协议导致的账号限制等后果由使用者自行承担。作者不对第三方服务商的数据处理行为或使用后果负责。
 
